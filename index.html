@@ -12,10 +12,12 @@
 :root{
   --pageBg:#dfe5ee;
 
+  /* デスクトップは“透け”を活かす */
   --bandA: rgba(255,255,255,.35);
   --bandB: rgba(10,15,25,.04);
   --rule: rgba(15,23,42,.14);
 
+  /* ボタン（黒すぎ回避：ディープスレート） */
   --btnBg1: rgba(15,23,42,.72);
   --btnBg2: rgba(30,41,59,.62);
   --btnBorder: rgba(255,255,255,.25);
@@ -29,8 +31,6 @@
 
 *{box-sizing:border-box}
 html,body{height:100%;}
-
-/* ✅ htmlにも背景色を入れて「チラ見え」を防ぐ */
 html{ background: var(--pageBg); }
 
 body{
@@ -40,18 +40,13 @@ body{
   line-height:1.5;
   display:flex;
   flex-direction:column;
-
-  /* ✅ iOS対策：高さを安定させる */
-  min-height: 100dvh;
-
-  /* ここでは単色だけ（グラデは固定レイヤーに逃がす） */
+  min-height:100dvh;
   background: var(--pageBg);
-
   position:relative;
   overflow-x:hidden;
 }
 
-/* ✅ 背景グラデを固定（スマホでズレない） */
+/* ✅ 背景（PC/タブレット：上品なグラデ） */
 body::before{
   content:"";
   position:fixed;
@@ -62,6 +57,18 @@ body::before{
     radial-gradient(900px 500px at 90% 10%, rgba(27,143,184,.14), transparent 55%),
     var(--pageBg);
   transform: translateZ(0);
+}
+
+/* ✅ スマホだけ「ズレる原因＝下地グラデ」を止める */
+@media (max-width:520px){
+  body::before{
+    background: var(--pageBg);
+  }
+  /* ✅ スマホは帯を“少し不透明”にして透けを減らし、ズレ感ゼロへ */
+  :root{
+    --bandA: rgba(255,255,255,.55);
+    --bandB: rgba(210,222,236,.55); /* ほんのりブルーグレー */
+  }
 }
 
 a{text-decoration:none;color:inherit}
@@ -102,7 +109,6 @@ header{
   min-width:180px;
   letter-spacing:.04em;
 }
-
 @media (max-width:520px){
   .brand img{height:32px;}
   .contact-btn{
@@ -158,7 +164,7 @@ main{
   gap:12px;
 }
 
-/* ガラス風ボタン */
+/* ガラス風ボタン（黒#000は使わない） */
 .pill-btn{
   display:flex;
   align-items:center;
