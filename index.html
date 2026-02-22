@@ -120,14 +120,22 @@ main{
   margin:0 0 8px;
 }
 
-/* スマホ：2列固定 */
+/* ===== グリッド（デフォルトは2列） ===== */
 .pill-grid{
   display:grid;
   grid-template-columns: 1fr 1fr;
   gap:8px;
 }
 
-/* 超コンパクトボタン */
+/* ✅ スマホのみ：3列にする */
+@media (max-width: 520px){
+  .pill-grid{
+    grid-template-columns: 1fr 1fr 1fr; /* 3列 */
+    gap:8px;
+  }
+}
+
+/* 超コンパクトボタン（サイズはこのまま） */
 .pill-btn{
   display:flex;
   align-items:center;
@@ -225,6 +233,8 @@ footer{
         <a class="pill-btn" href="#"><span class="pill-title">支出管理</span><span class="pill-icon">→</span></a>
         <a class="pill-btn" href="#"><span class="pill-title">ランニングコスト</span><span class="pill-icon">→</span></a>
         <a class="pill-btn" href="#"><span class="pill-title">予算</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">資産</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">税金</span><span class="pill-icon">→</span></a>
       </div>
     </section>
 
@@ -236,6 +246,8 @@ footer{
         <a class="pill-btn" href="#"><span class="pill-title">自分ルール</span><span class="pill-icon">→</span></a>
         <a class="pill-btn" href="#"><span class="pill-title">振り返り</span><span class="pill-icon">→</span></a>
         <a class="pill-btn" href="#"><span class="pill-title">体調</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">目標</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">学び</span><span class="pill-icon">→</span></a>
       </div>
     </section>
 
@@ -245,8 +257,10 @@ footer{
       <div class="pill-grid">
         <a class="pill-btn" href="#"><span class="pill-title">日常利用</span><span class="pill-icon">→</span></a>
         <a class="pill-btn" href="#"><span class="pill-title">タスク管理</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">パートナー共有</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">共有</span><span class="pill-icon">→</span></a>
         <a class="pill-btn" href="#"><span class="pill-title">買い物</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">家事</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">連絡</span><span class="pill-icon">→</span></a>
       </div>
     </section>
 
@@ -255,9 +269,11 @@ footer{
       <div class="section-title">🎮 遊び</div>
       <div class="pill-grid">
         <a class="pill-btn" href="#"><span class="pill-title">遊びリスト</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">やったことログ</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">やったこと</span><span class="pill-icon">→</span></a>
         <a class="pill-btn" href="#"><span class="pill-title">旅行</span><span class="pill-icon">→</span></a>
         <a class="pill-btn" href="#"><span class="pill-title">映画</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">本</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">外食</span><span class="pill-icon">→</span></a>
       </div>
     </section>
 
@@ -269,6 +285,8 @@ footer{
         <a class="pill-btn" href="#"><span class="pill-title">アプリ作成</span><span class="pill-icon">→</span></a>
         <a class="pill-btn" href="#"><span class="pill-title">学習</span><span class="pill-icon">→</span></a>
         <a class="pill-btn" href="#"><span class="pill-title">資料</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">会議</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">企画</span><span class="pill-icon">→</span></a>
       </div>
     </section>
 
