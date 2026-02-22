@@ -24,7 +24,7 @@
   --blue2:#1b8fb8;
 
   --shadowH: 0 10px 24px rgba(0,0,0,.18);
-  --shadowSoft:0 10px 30px rgba(15,23,42,.15);
+  --shadowSoft: 0 10px 30px rgba(15,23,42,.15);
 }
 
 *{box-sizing:border-box}
@@ -35,6 +35,7 @@ body{
   margin:0;
   font-family:'Montserrat','Noto Sans JP',sans-serif;
   color:#0f1115;
+  line-height:1.5;
   display:flex;
   flex-direction:column;
   min-height:100dvh;
@@ -43,7 +44,7 @@ body{
   overflow-x:hidden;
 }
 
-/* 背景 */
+/* 背景（PC/タブレット） */
 body::before{
   content:"";
   position:fixed;
@@ -55,7 +56,7 @@ body::before{
     var(--pageBg);
 }
 
-/* スマホ背景固定 */
+/* スマホ：背景ズレ止め + 帯を少し不透明に */
 @media (max-width:520px){
   body::before{ background: var(--pageBg); }
   :root{
@@ -78,8 +79,8 @@ header{
   z-index:10;
   box-shadow:var(--shadowH);
   backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
 }
-
 .header-inner{
   display:flex;
   align-items:center;
@@ -87,16 +88,17 @@ header{
   padding:12px 0;
   gap:12px;
 }
-
-.brand img{height:44px;}
+.brand{display:flex; align-items:center; flex:0 0 auto;}
+.brand img{height:44px; width:auto; display:block;}
 
 .header-actions{
   display:flex;
   align-items:center;
   gap:8px;
+  flex:0 0 auto;
 }
 
-/* PCサイズ */
+/* アプリ管理（PC） */
 .contact-btn{
   display:flex;
   align-items:center;
@@ -106,9 +108,12 @@ header{
   font-weight:900;
   padding:10px 16px;
   border-radius:12px;
+  border:1px solid rgba(255,255,255,.12);
   min-width:180px;
+  letter-spacing:.04em;
 }
 
+/* 更新ボタン */
 .refresh-btn{
   width:40px;
   height:40px;
@@ -121,29 +126,31 @@ header{
   align-items:center;
   justify-content:center;
   cursor:pointer;
+  -webkit-tap-highlight-color: transparent;
 }
+.refresh-btn:active{ transform: scale(.98); }
 
-/* ✅ スマホのみ幅変更 */
+/* ✅ スマホのみ：アプリ管理：更新 = 2：1（更新を半分の幅へ） */
 @media (max-width:520px){
-
   .brand img{height:32px;}
 
-  .header-actions{
-    flex:1;
-  }
+  /* 右側を使える幅にする */
+  .header-actions{ flex:1; }
 
-  /* flex比率 1 : 2 */
   .contact-btn{
-    flex:1;             /* ← 半分 */
+    flex:2;              /* ← 大きめ */
     min-width:0;
     height:32px;
-    font-size:11px;
     padding:0;
     border-radius:8px;
+    font-size:11px;
+    line-height:1;
+    white-space:nowrap;
   }
 
   .refresh-btn{
-    flex:2;             /* ← 2倍 */
+    flex:1;              /* ← 更新は半分 */
+    min-width:0;
     height:32px;
     border-radius:8px;
     font-size:16px;
@@ -155,10 +162,9 @@ main{
   flex:1;
   padding:20px 0 40px;
 }
-
 .hero{
   text-align:center;
-  margin-bottom:20px;
+  margin:12px 0 18px;
 }
 .hero h1{
   margin:0;
@@ -167,7 +173,7 @@ main{
   letter-spacing:.12em;
 }
 
-/* ================= SECTION ================= */
+/* ================= SECTIONS ================= */
 .section{
   border-top:1px solid var(--rule);
   border-bottom:1px solid var(--rule);
@@ -181,6 +187,7 @@ main{
   font-size:18px;
   font-weight:900;
   margin:0 0 16px;
+  letter-spacing:.08em;
 }
 
 .pill-grid{
@@ -202,26 +209,49 @@ main{
   font-weight:900;
   border:1px solid var(--btnBorder);
   backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
   box-shadow:var(--shadowSoft);
+  transition:transform .2s ease, filter .2s ease, box-shadow .2s ease;
 }
-
+.pill-btn:hover{
+  transform:translateY(-3px);
+  filter:brightness(1.08);
+  box-shadow:0 14px 34px rgba(15,23,42,.18);
+}
+.pill-title{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  padding-right:8px;
+}
 .pill-icon{
   width:26px;
   height:26px;
   border-radius:999px;
   background:rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.3);
   display:flex;
   align-items:center;
   justify-content:center;
+  font-size:14px;
+  flex:0 0 auto;
 }
 
-/* スマホボタン小さめ */
+/* スマホ：小さめ（もう一回り小さく） */
 @media (max-width:520px){
+  main{ padding:16px 0 32px; }
+  .hero h1{ font-size:20px; }
+
+  .section .container{ padding:14px 0; }
+  .section-title{ font-size:14px; margin:0 0 12px; }
+
+  .pill-grid{ gap:10px; }
+
   .pill-btn{
     padding:6px 8px;
     min-height:34px;
-    font-size:10px;
     border-radius:14px;
+    font-size:10px;
   }
   .pill-icon{
     width:18px;
@@ -230,7 +260,14 @@ main{
   }
 }
 
-/* FOOTER */
+/* PC */
+@media(min-width:900px){
+  .pill-grid{grid-template-columns:repeat(4,1fr); gap:14px;}
+  .pill-btn{min-height:56px; font-size:15px;}
+  .section-title{font-size:20px;}
+}
+
+/* ================= FOOTER ================= */
 footer{
   background:#000;
   color:#fff;
@@ -238,8 +275,18 @@ footer{
 }
 .footer-inner{
   display:grid;
-  grid-template-columns:1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap:20px;
+}
+.footer-left{
+  font-size:13px;
+  line-height:1.7;
+}
+.footer-links a{
+  display:block;
+  padding:4px 0;
+  color:#ccc;
+  font-size:13px;
 }
 @media(max-width:700px){
   .footer-inner{grid-template-columns:1fr;}
@@ -257,45 +304,118 @@ footer{
 
     <div class="header-actions">
       <a href="#" class="contact-btn">アプリ管理</a>
-      <button id="refreshBtn" class="refresh-btn">⟳</button>
+      <button id="refreshBtn" class="refresh-btn" type="button" aria-label="更新" title="更新">⟳</button>
     </div>
   </div>
 </header>
 
 <main>
 
-<div class="container hero">
-  <h1>MTK インデックス</h1>
-</div>
+  <div class="container hero">
+    <h1>MTK インデックス</h1>
+  </div>
 
-<section class="section bandA">
-<div class="container">
-<div class="section-title">Life style</div>
-<div class="pill-grid">
-<a class="pill-btn" href="#"><span>時刻表</span><span class="pill-icon">→</span></a>
-<a class="pill-btn" href="#"><span>購入リスト</span><span class="pill-icon">→</span></a>
-<a class="pill-btn" href="#"><span>P共有</span><span class="pill-icon">→</span></a>
-</div>
-</div>
-</section>
+  <!-- 🔝 Life style -->
+  <section class="section bandA">
+    <div class="container">
+      <div class="section-title">Life style</div>
+      <div class="pill-grid">
+        <a class="pill-btn" href="#"><span class="pill-title">時刻表</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">購入リスト</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">P共有</span><span class="pill-icon">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 💰 お金 -->
+  <section class="section bandB">
+    <div class="container">
+      <div class="section-title">💰 お金</div>
+      <div class="pill-grid">
+        <a class="pill-btn" href="#"><span class="pill-title">予定</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">支出</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">ランコス</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">予算</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">資産</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">税</span><span class="pill-icon">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🧠 自分 -->
+  <section class="section bandA">
+    <div class="container">
+      <div class="section-title">🧠 自分</div>
+      <div class="pill-grid">
+        <a class="pill-btn" href="#"><span class="pill-title">自分</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">ルール</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">振返</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">体調</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">目標</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">学び</span><span class="pill-icon">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🎮 遊び -->
+  <section class="section bandB">
+    <div class="container">
+      <div class="section-title">🎮 遊び</div>
+      <div class="pill-grid">
+        <a class="pill-btn" href="#"><span class="pill-title">遊び</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">ログ</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">旅行</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">映画</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">本</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">外食</span><span class="pill-icon">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 💼 仕事 -->
+  <section class="section bandA">
+    <div class="container">
+      <div class="section-title">💼 仕事</div>
+      <div class="pill-grid">
+        <a class="pill-btn" href="#"><span class="pill-title">仕事</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">開発</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">学習</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">資料</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">会議</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">企画</span><span class="pill-icon">→</span></a>
+      </div>
+    </div>
+  </section>
 
 </main>
 
 <footer>
-<div class="container footer-inner">
-<div>
-<strong>A beef</strong><br>
-株式会社MTK
-</div>
-<div></div>
-<div></div>
-</div>
+  <div class="container footer-inner">
+    <div class="footer-left">
+      <strong>A beef</strong><br>
+      株式会社MTK<br>
+      代表取締役
+    </div>
+    <div class="footer-links">
+      <a href="#">ホーム</a>
+      <a href="#">サービス</a>
+      <a href="#">会社概要</a>
+      <a href="#">お問合せ</a>
+    </div>
+    <div></div>
+  </div>
 </footer>
 
 <script>
-document.getElementById("refreshBtn").addEventListener("click", function(){
-  location.reload();
-});
+  (function(){
+    const btn = document.getElementById('refreshBtn');
+    if(!btn) return;
+    btn.addEventListener('click', function(){
+      const url = new URL(location.href);
+      url.searchParams.set('_r', Date.now());
+      location.replace(url.toString());
+    });
+  })();
 </script>
 
 </body>
