@@ -378,7 +378,6 @@ footer{
   </div>
 </footer>
 
-<!-- フッター用 追加CSS -->
 <style>
 /* ================= FOOTER ================= */
 footer{
@@ -398,7 +397,7 @@ footer{
   line-height:1.7;
 }
 
-/* 右カラムに表示 */
+/* 右カラム固定 */
 .footer-links{
   justify-self:end;
 }
@@ -410,18 +409,7 @@ footer{
   font-size:13px;
 }
 
-/* スマホ時は縦並び */
-@media(max-width:700px){
-  .footer-inner{
-    grid-template-columns:1fr;
-  }
-  .footer-links{
-    justify-self:start;
-  }
-  .footer-spacer{
-    display:none;
-  }
-}
+/* ※スマホ用の縦並び指定は削除 */
 </style>
 
 <script>
