@@ -130,15 +130,13 @@ header{
 }
 .refresh-btn:active{ transform: scale(.98); }
 
-/* ✅ スマホのみ：アプリ管理：更新 = 2：1（更新を半分の幅へ） */
+/* ✅ スマホのみ：アプリ管理 = “一つ前のサイズ”(flex:1) に戻す（＝更新もflex:1） */
 @media (max-width:520px){
   .brand img{height:32px;}
-
-  /* 右側を使える幅にする */
   .header-actions{ flex:1; }
 
   .contact-btn{
-    flex:2;              /* ← 大きめ */
+    flex:1;              /* ← 一つ前のサイズ */
     min-width:0;
     height:32px;
     padding:0;
@@ -149,7 +147,7 @@ header{
   }
 
   .refresh-btn{
-    flex:1;              /* ← 更新は半分 */
+    flex:1;
     min-width:0;
     height:32px;
     border-radius:8px;
@@ -315,7 +313,7 @@ footer{
     <h1>MTK インデックス</h1>
   </div>
 
-  <!-- 🔝 Life style -->
+  <!-- 🔝 Life style（最上部） -->
   <section class="section bandA">
     <div class="container">
       <div class="section-title">Life style</div>
