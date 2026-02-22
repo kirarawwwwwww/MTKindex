@@ -229,6 +229,30 @@ main{
   grid-template-columns:repeat(3,1fr);
   gap:12px;
 }
+  /* ===== デフォルト：3列 ===== */
+.pill-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:12px;
+}
+
+/* ===== 1個・2個のとき ===== */
+.pill-grid.grid-1,
+.pill-grid.grid-2{
+  grid-template-columns:repeat(2, minmax(160px, 1fr));
+  justify-content:center;
+}
+
+/* 1個だけなら中央に1つ */
+.pill-grid.grid-1{
+  grid-template-columns:minmax(200px, 1fr);
+  justify-content:center;
+}
+
+/* ===== 4個のとき（2×2） ===== */
+.pill-grid.grid-4{
+  grid-template-columns:repeat(2, 1fr);
+}
 
 .pill-btn{
   display:flex;
@@ -290,6 +314,17 @@ main{
     width:18px;
     height:18px;
     font-size:10px;
+    
+    @media (max-width:520px){
+  .pill-grid.grid-1{
+    grid-template-columns:1fr;
+  }
+
+  .pill-grid.grid-2,
+  .pill-grid.grid-4{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
   }
 }
 
@@ -510,7 +545,7 @@ main{
   <section class="section bandB">
     <div class="container">
       <div class="section-title">Work</div>
-      <div class="pill-grid">
+      <div class="pill-grid grid-1">
         <a class="pill-btn" href="#"><span class="pill-title">仕事管理画面へ移動</span><span class="pill-icon">→</span></a>
         
       </div>
@@ -521,7 +556,7 @@ main{
   <section class="section bandA">
     <div class="container">
       <div class="section-title">Private</div>
-      <div class="pill-grid">
+      <div class="pill-grid−4">
         <a class="pill-btn" href="#"><span class="pill-title">ルール</span><span class="pill-icon">→</span></a>
         <a class="pill-btn" href="#"><span class="pill-title">名言</span><span class="pill-icon">→</span></a>
 
