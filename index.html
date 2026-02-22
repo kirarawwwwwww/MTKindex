@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- ✅ スタイリッシュなフォント追加 -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
 
 <title>A beef | MTK インデックス</title>
@@ -23,11 +22,10 @@
 *{box-sizing:border-box}
 html, body{height:100%;}
 
-/* ✅ フォント変更 */
 body{
   margin:0;
-  font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
-  background: var(--pageBg);
+  font-family:'Montserrat','Noto Sans JP',sans-serif;
+  background:var(--pageBg);
   color:#0f1115;
   line-height:1.5;
   display:flex;
@@ -40,40 +38,34 @@ a{text-decoration:none;color:inherit}
   margin:auto;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 header{
   background:#000;
   position:sticky;
   top:0;
   z-index:10;
-  box-shadow: var(--shadowH);
+  box-shadow:var(--shadowH);
 }
 .header-inner{
   display:flex;
   align-items:center;
   justify-content:space-between;
   padding:12px 0;
-  gap:12px;
 }
-.brand img{
-  height:44px;
-}
+.brand img{height:44px;}
 
-/* ボタン */
 .contact-btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  background: linear-gradient(180deg, var(--blue), var(--blue2));
+  background:linear-gradient(180deg,var(--blue),var(--blue2));
   color:#fff;
   font-weight:900;
   padding:10px 16px;
   border-radius:12px;
   min-width:180px;
-  letter-spacing:.05em;
 }
 
-/* スマホ */
 @media (max-width:520px){
   .brand img{height:32px;}
   .contact-btn{
@@ -83,51 +75,48 @@ header{
     border-radius:8px;
     font-size:11px;
     min-width:auto;
-    white-space:nowrap;
   }
 }
 
-/* ================= MAIN ================= */
+/* MAIN */
 main{
   flex:1;
-  padding:14px 0 22px;
+  padding:20px 0 30px;
 }
 
 .hero{
   text-align:center;
-  margin:10px 0 14px;
+  margin:10px 0 20px;
 }
 .hero h1{
   margin:0;
-  font-size:22px;
+  font-size:24px;
   font-weight:900;
   letter-spacing:.08em;
 }
 
+/* セクション */
 .section{
   width:100%;
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
 }
-.section.bandA{ background: var(--bandA); }
-.section.bandB{ background: var(--bandB); }
+.section.bandA{background:var(--bandA);}
+.section.bandB{background:var(--bandB);}
 
-.section .container{
-  padding:14px 0;
-}
+.section .container{padding:16px 0;}
 
-/* ✅ カテゴリ名中央 */
 .section-title{
   text-align:center;
-  font-size:15px;
+  font-size:16px;
   font-weight:900;
-  margin:0 0 12px;
+  margin:0 0 14px;
   letter-spacing:.08em;
 }
 
 .pill-grid{
   display:grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns:repeat(3,1fr);
   gap:8px;
 }
 
@@ -148,7 +137,6 @@ main{
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
-  padding-right:6px;
 }
 
 .pill-icon{
@@ -164,15 +152,14 @@ main{
 }
 
 @media (min-width:900px){
-  main{padding:34px 0 54px;}
   .hero h1{font-size:28px;}
   .section-title{font-size:20px;}
-  .pill-grid{grid-template-columns: repeat(4, 1fr); gap:12px;}
+  .pill-grid{grid-template-columns:repeat(4,1fr);gap:12px;}
   .pill-btn{min-height:48px;font-size:14px;padding:12px 14px;}
   .pill-icon{width:26px;height:26px;font-size:13px;}
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 footer{
   background:#000;
   color:#fff;
@@ -180,7 +167,7 @@ footer{
 }
 .footer-inner{
   display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns:1fr 1fr 1fr;
   gap:20px;
 }
 .footer-left{
@@ -206,20 +193,47 @@ footer{
     <a class="brand" href="#">
       <img src="logo.png" alt="A beef ロゴ">
     </a>
-    <!-- ✅ ボタン名変更 -->
     <a href="#" class="contact-btn">アプリ管理</a>
   </div>
 </header>
 
 <main>
+
   <div class="container">
     <div class="hero">
       <h1>MTK インデックス</h1>
     </div>
   </div>
 
-  <!-- セクションはそのまま -->
-  <!-- （中身は元コードと同じため省略せずそのまま使用可能） -->
+  <!-- 💰 -->
+  <section class="section bandA">
+    <div class="container">
+      <div class="section-title">💰 お金</div>
+      <div class="pill-grid">
+        <a class="pill-btn" href="#"><span>予定</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span>支出</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span>ランコス</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span>予算</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span>資産</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span>税</span><span class="pill-icon">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🧠 -->
+  <section class="section bandB">
+    <div class="container">
+      <div class="section-title">🧠 自分</div>
+      <div class="pill-grid">
+        <a class="pill-btn" href="#"><span>自分</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span>ルール</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span>振返</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span>体調</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span>目標</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span>学び</span><span class="pill-icon">→</span></a>
+      </div>
+    </div>
+  </section>
 
 </main>
 
