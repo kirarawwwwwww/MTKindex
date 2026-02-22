@@ -9,8 +9,17 @@
 :root{
   --blue:#2aa7d7;
   --blue2:#1b8fb8;
-  --cardLav:#dcd0f0;
-  --cardGry:#e8e8e8;
+
+  /* ✅ 画像のような薄いブルーグレー */
+  --pageBg: #dfe5ee;
+
+  /* ✅ セクション交互背景（淡色） */
+  --secA: rgba(255,255,255,.38);
+  --secB: rgba(0,0,0,.03);
+
+  /* ✅ 区切り線 */
+  --rule: rgba(0,0,0,.12);
+
   --shadowH: 0 10px 24px rgba(0,0,0,.18);
 }
 
@@ -19,8 +28,10 @@ html, body{height:100%;}
 body{
   margin:0;
   font-family: system-ui, -apple-system, "Noto Sans JP", sans-serif;
-  background: linear-gradient(180deg, #ffffff, #f7f3ea 100%);
+  background: var(--pageBg);
   color:#0f1115;
+  line-height:1.5;
+
   display:flex;
   flex-direction:column;
 }
@@ -44,9 +55,12 @@ header{
   align-items:center;
   justify-content:space-between;
   padding:12px 0;
+  gap:12px;
 }
+.brand{display:flex;align-items:center;}
 .brand img{
   height:44px;
+  width:auto;
   display:block;
 }
 
@@ -60,6 +74,7 @@ header{
   font-weight:900;
   padding:10px 16px;
   border-radius:12px;
+  border:1px solid rgba(255,255,255,.12);
   min-width:180px;
 }
 
@@ -82,49 +97,57 @@ main{
   padding:14px 0 22px;
 }
 
+/* タイトル（シンプル） */
 .hero{
   text-align:center;
-  margin-bottom:12px;
+  margin:10px 0 14px;
 }
 .hero h1{
   margin:0;
   font-size:20px;
   font-weight:900;
+  letter-spacing:.04em;
 }
 
-/* カテゴリ */
+/* ✅ カード廃止：線区切りのセクション */
 .section{
-  margin-bottom:12px;
-  border-radius:18px;
-  padding:12px 8px;
+  padding:14px 0;
+  border-top: 1px solid var(--rule);
 }
-.lav{background:var(--cardLav);}
-.gry{background:var(--cardGry);}
+.section:first-of-type{
+  border-top: 0;
+}
 
+/* 交互背景（コンテナ外にはみ出ないように内側で背景を作る） */
+.section-inner{
+  border-radius:0;           /* カード感を消す */
+  padding:12px 10px;
+}
+.section.altA .section-inner{ background: var(--secA); }
+.section.altB .section-inner{ background: var(--secB); }
+
+/* セクションタイトル */
 .section-title{
-  text-align:center;
+  text-align:left;
   font-size:14px;
   font-weight:900;
-  margin-bottom:8px;
+  margin:0 0 10px;
+  letter-spacing:.02em;
 }
 
-/* ================= グリッド ================= */
-
-/* デフォルト（PCなど） */
+/* ===== グリッド：スマホは3列固定 ===== */
 .pill-grid{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
   gap:8px;
 }
-
-/* ✅ スマホは強制3列 */
 @media (max-width:520px){
   .pill-grid{
     grid-template-columns: repeat(3, 1fr) !important;
   }
 }
 
-/* ================= ボタン ================= */
+/* ===== ボタン（デザイン維持） ===== */
 .pill-btn{
   display:flex;
   align-items:center;
@@ -137,13 +160,11 @@ main{
   font-size:11px;
   font-weight:900;
 }
-
 .pill-title{
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
 }
-
 .pill-icon{
   width:18px;
   height:18px;
@@ -154,15 +175,17 @@ main{
   align-items:center;
   justify-content:center;
   font-size:10px;
+  flex:0 0 auto;
 }
 
 /* PC拡張 */
 @media (min-width:900px){
-  main{padding:40px 0 60px;}
+  main{padding:34px 0 54px;}
   .hero h1{font-size:26px;}
-  .section{padding:22px 18px;border-radius:26px;}
-  .section-title{font-size:18px;}
-  .pill-btn{min-height:50px;font-size:14px;padding:12px 14px;}
+  .section{padding:18px 0;}
+  .section-title{font-size:18px;margin-bottom:12px;}
+  .pill-grid{grid-template-columns: repeat(4, 1fr); gap:12px;}
+  .pill-btn{min-height:48px;font-size:14px;padding:12px 14px;}
   .pill-icon{width:26px;height:26px;font-size:13px;}
 }
 
@@ -212,41 +235,77 @@ footer{
     </div>
 
     <!-- お金 -->
-    <section class="section lav">
-      <div class="section-title">💰 お金</div>
-      <div class="pill-grid">
-        <a class="pill-btn"><span class="pill-title">予定</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn"><span class="pill-title">支出</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn"><span class="pill-title">ランコス</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn"><span class="pill-title">予算</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn"><span class="pill-title">資産</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn"><span class="pill-title">税</span><span class="pill-icon">→</span></a>
+    <section class="section altA">
+      <div class="section-inner">
+        <div class="section-title">💰 お金</div>
+        <div class="pill-grid">
+          <a class="pill-btn" href="#"><span class="pill-title">予定</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">支出</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">ランコス</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">予算</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">資産</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">税</span><span class="pill-icon">→</span></a>
+        </div>
       </div>
     </section>
 
     <!-- 自分 -->
-    <section class="section gry">
-      <div class="section-title">🧠 自分</div>
-      <div class="pill-grid">
-        <a class="pill-btn"><span class="pill-title">自分</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn"><span class="pill-title">ルール</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn"><span class="pill-title">振返</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn"><span class="pill-title">体調</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn"><span class="pill-title">目標</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn"><span class="pill-title">学び</span><span class="pill-icon">→</span></a>
+    <section class="section altB">
+      <div class="section-inner">
+        <div class="section-title">🧠 自分</div>
+        <div class="pill-grid">
+          <a class="pill-btn" href="#"><span class="pill-title">自分</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">ルール</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">振返</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">体調</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">目標</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">学び</span><span class="pill-icon">→</span></a>
+        </div>
       </div>
     </section>
 
     <!-- 日常 -->
-    <section class="section lav">
-      <div class="section-title">✅ 日常</div>
-      <div class="pill-grid">
-        <a class="pill-btn"><span class="pill-title">日常</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn"><span class="pill-title">タスク</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn"><span class="pill-title">共有</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn"><span class="pill-title">買物</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn"><span class="pill-title">家事</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn"><span class="pill-title">連絡</span><span class="pill-icon">→</span></a>
+    <section class="section altA">
+      <div class="section-inner">
+        <div class="section-title">✅ 日常</div>
+        <div class="pill-grid">
+          <a class="pill-btn" href="#"><span class="pill-title">日常</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">タスク</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">共有</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">買物</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">家事</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">連絡</span><span class="pill-icon">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 遊び -->
+    <section class="section altB">
+      <div class="section-inner">
+        <div class="section-title">🎮 遊び</div>
+        <div class="pill-grid">
+          <a class="pill-btn" href="#"><span class="pill-title">遊び</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">ログ</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">旅行</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">映画</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">本</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">外食</span><span class="pill-icon">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 仕事 -->
+    <section class="section altA">
+      <div class="section-inner">
+        <div class="section-title">💼 仕事</div>
+        <div class="pill-grid">
+          <a class="pill-btn" href="#"><span class="pill-title">仕事</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">開発</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">学習</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">資料</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">会議</span><span class="pill-icon">→</span></a>
+          <a class="pill-btn" href="#"><span class="pill-title">企画</span><span class="pill-icon">→</span></a>
+        </div>
       </div>
     </section>
 
