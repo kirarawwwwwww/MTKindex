@@ -7,8 +7,13 @@
 
 <style>
 :root{
+  --blue:#2aa7d7;
+  --blue2:#1b8fb8;
+
   --cardLav:#dcd0f0;
   --cardGry:#e8e8e8;
+
+  --shadowH: 0 10px 24px rgba(0,0,0,.18);
 }
 
 *{box-sizing:border-box}
@@ -16,73 +21,116 @@ body{
   margin:0;
   font-family: system-ui, -apple-system, "Noto Sans JP", sans-serif;
   background: linear-gradient(180deg, #ffffff, #f7f3ea 100%);
+  color:#0f1115;
+  line-height:1.5;
 }
-a{text-decoration:none;color:inherit}
+a{color:inherit;text-decoration:none}
 .container{
-  width:calc(100% - 28px);
+  width:min(1120px, calc(100% - 28px));
   margin:auto;
 }
 
-/* ===== HEADER（共通） ===== */
+/* =========================
+   HEADER
+   ========================= */
 header{
   background:#000;
-  box-shadow: 0 10px 24px rgba(0,0,0,.18);
+  position:sticky;
+  top:0;
+  z-index:10;
+  box-shadow: var(--shadowH);
 }
 .header-inner{
-  padding:16px 0;
+  /* ここが重要：常に左右配置 */
   display:flex;
   align-items:center;
-  justify-content:center; /* PCは中央 */
+  justify-content:space-between;
   gap:12px;
+
+  padding:14px 0;
+}
+.brand{
+  display:flex;
+  align-items:center;
 }
 .brand img{
-  height:34px;
+  height:44px;       /* デスクトップ基準 */
   width:auto;
   display:block;
 }
 
-/* 既定（PC/タブレット）：横幅あるので大きいボタンOK */
+/* デスクトップ：通常の大きめボタン */
 .contact-btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  background:linear-gradient(180deg,#2aa7d7,#1b8fb8);
+
+  background: linear-gradient(180deg, var(--blue), var(--blue2));
   color:#fff;
-  padding:12px 18px;
   font-weight:900;
-  border-radius:14px;
-  min-width:220px;
+
+  padding:10px 16px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.12);
+  min-width:180px;
 }
 
-/* ===== MAIN ===== */
-.main{padding:20px 0;}
-.hero{text-align:center;margin:0 0 12px;}
-.hero h1{margin:0;font-size:20px;font-weight:900;}
+/* ✅ スマホのみ：ボタンを小さい四角にして右端、ロゴと同じ高さに */
+@media (max-width: 520px){
+  .brand img{
+    height:34px;     /* スマホ時ロゴ高さ */
+  }
+  .contact-btn{
+    min-width:auto;
+    width:96px;      /* 小さめ横幅 */
+    height:34px;     /* ロゴと同じ高さ */
+    padding:0 10px;  /* 高さはheightで固定 */
+    border-radius:10px; /* 四角寄り */
+    font-size:12px;
+    line-height:1;
+    white-space:nowrap;
+  }
+}
 
-/* ===== CATEGORY CARD ===== */
+/* =========================
+   MAIN
+   ========================= */
+.main{padding:16px 0 26px;}
+.hero{
+  text-align:center;
+  margin:10px 0 12px;
+}
+.hero h1{
+  margin:0;
+  font-size:20px;
+  font-weight:900;
+  letter-spacing:.04em;
+}
+
+/* カテゴリカード */
 .section{
   margin-bottom:12px;
   border-radius:18px;
   padding:12px 10px;
 }
-.lav{background:var(--cardLav);}
-.gry{background:var(--cardGry);}
+.section.lav{background:var(--cardLav);}
+.section.gry{background:var(--cardGry);}
 
 .section-title{
   text-align:center;
   font-size:15px;
   font-weight:900;
-  margin-bottom:8px;
+  margin:0 0 8px;
 }
 
-/* ===== 2列グリッド（スマホ基準） ===== */
+/* ボタン2列（スマホでも2列固定） */
 .pill-grid{
   display:grid;
   grid-template-columns: 1fr 1fr;
   gap:8px;
 }
 
-/* ===== 超コンパクトボタン ===== */
+/* 超コンパクトボタン */
 .pill-btn{
   display:flex;
   align-items:center;
@@ -96,60 +144,63 @@ header{
   border-radius:999px;
 
   font-size:12px;
-  font-weight:800;
+  font-weight:900;
 }
 .pill-title{
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
+  padding-right:6px;
 }
 .pill-icon{
   width:22px;
   height:22px;
-  border-radius:50%;
+  border-radius:999px;
   background:#fff;
   color:#000;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   font-size:12px;
-  flex-shrink:0;
+  flex:0 0 auto;
 }
 
-/* ===== PCだけ広く（任意） ===== */
+/* PCだけ少しゆったり */
 @media (min-width: 900px){
-  .container{max-width:1100px;}
-  .header-inner{justify-content:space-between;}
+  .main{padding:40px 0 60px;}
+  .hero h1{font-size:26px;}
+  .section{padding:22px 18px;border-radius:26px;}
+  .section-title{font-size:20px;margin-bottom:14px;}
+  .pill-grid{grid-template-columns: repeat(3, 1fr); gap:14px;}
+  .pill-btn{min-height:56px;padding:14px 16px;font-size:14px;}
+  .pill-icon{width:30px;height:30px;font-size:14px;}
   .brand img{height:44px;}
-  .contact-btn{min-width:240px;}
-  .pill-grid{grid-template-columns: repeat(3, 1fr);}
+  .contact-btn{min-width:220px;height:auto;padding:12px 18px;font-size:14px;border-radius:14px;}
 }
 
-/* =========================================================
-   ✅ スマホのみ：ロゴと同じ高さで右端に「小さい四角ボタン」
-   ========================================================= */
-@media (max-width: 520px){
-  .header-inner{
-    padding:14px 0;
-    justify-content:space-between; /* 左ロゴ・右ボタン */
-  }
-
-  .brand img{
-    height:34px; /* ロゴ高さ */
-  }
-
-  /* 「HPへ移動」を小さく四角（角丸）に */
-  .contact-btn{
-    min-width:auto;
-    width:92px;               /* 小さめ */
-    height:34px;              /* ロゴと同じ高さ */
-    padding:0 10px;
-    border-radius:10px;       /* 四角寄り */
-    font-size:12px;
-    font-weight:900;
-    line-height:1;
-    white-space:nowrap;
-  }
+/* =========================
+   FOOTER（復活）
+   ========================= */
+footer{
+  background:#000;
+  color:#fff;
+  padding:44px 0;
+  margin-top:26px;
+}
+.footer-inner{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:24px;
+}
+.footer-links a{
+  display:block;
+  padding:4px 0;
+  color:#ccc;
+}
+@media (max-width:700px){
+  .footer-inner{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -173,7 +224,7 @@ header{
     </div>
 
     <!-- お金 -->
-    <div class="section lav">
+    <section class="section lav">
       <div class="section-title">💰 お金</div>
       <div class="pill-grid">
         <a class="pill-btn" href="#"><span class="pill-title">購入予定</span><span class="pill-icon">→</span></a>
@@ -181,10 +232,10 @@ header{
         <a class="pill-btn" href="#"><span class="pill-title">ランニング</span><span class="pill-icon">→</span></a>
         <a class="pill-btn" href="#"><span class="pill-title">予算</span><span class="pill-icon">→</span></a>
       </div>
-    </div>
+    </section>
 
     <!-- 自分 -->
-    <div class="section gry">
+    <section class="section gry">
       <div class="section-title">🧠 自分</div>
       <div class="pill-grid">
         <a class="pill-btn" href="#"><span class="pill-title">自分とは</span><span class="pill-icon">→</span></a>
@@ -192,10 +243,10 @@ header{
         <a class="pill-btn" href="#"><span class="pill-title">振り返り</span><span class="pill-icon">→</span></a>
         <a class="pill-btn" href="#"><span class="pill-title">体調</span><span class="pill-icon">→</span></a>
       </div>
-    </div>
+    </section>
 
     <!-- 日常 -->
-    <div class="section lav">
+    <section class="section lav">
       <div class="section-title">✅ 日常</div>
       <div class="pill-grid">
         <a class="pill-btn" href="#"><span class="pill-title">日常利用</span><span class="pill-icon">→</span></a>
@@ -203,10 +254,26 @@ header{
         <a class="pill-btn" href="#"><span class="pill-title">共有</span><span class="pill-icon">→</span></a>
         <a class="pill-btn" href="#"><span class="pill-title">買い物</span><span class="pill-icon">→</span></a>
       </div>
-    </div>
+    </section>
 
   </div>
 </main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <strong>A beef</strong><br>
+      All rights reserved.
+    </div>
+    <div class="footer-links">
+      <a href="#">ホーム</a>
+      <a href="#">サービス</a>
+      <a href="#">会社情報</a>
+      <a href="#">お問い合わせ</a>
+    </div>
+    <div></div>
+  </div>
+</footer>
 
 </body>
 </html>
