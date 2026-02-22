@@ -44,7 +44,7 @@ body{
   overflow-x:hidden;
 }
 
-/* PC背景 */
+/* 背景（PC） */
 body::before{
   content:"";
   position:fixed;
@@ -56,7 +56,7 @@ body::before{
     var(--pageBg);
 }
 
-/* スマホ背景ズレ対策 */
+/* スマホ背景固定 */
 @media (max-width:520px){
   body::before{ background: var(--pageBg); }
   :root{
@@ -102,10 +102,10 @@ header{
 @media(max-width:520px){
   .brand img{height:32px;}
   .contact-btn{
-    width:88px;
-    height:32px;
+    width:80px;
+    height:30px;
     padding:0;
-    font-size:11px;
+    font-size:10px;
     border-radius:8px;
   }
 }
@@ -150,7 +150,7 @@ main{
   gap:12px;
 }
 
-/* ボタン */
+/* ボタン（通常） */
 .pill-btn{
   display:flex;
   align-items:center;
@@ -184,8 +184,28 @@ main{
   font-size:14px;
 }
 
+/* ✅ スマホだけ 2回り小さく */
+@media (max-width:520px){
+  .pill-btn{
+    padding:8px 10px;
+    min-height:38px;
+    border-radius:14px;
+    font-size:11px;   /* ← 小さく */
+  }
+  .pill-icon{
+    width:20px;
+    height:20px;
+    font-size:11px;
+  }
+  .section-title{
+    font-size:15px;
+  }
+}
+
+/* PC */
 @media(min-width:900px){
   .pill-grid{grid-template-columns:repeat(4,1fr);}
+  .pill-btn{min-height:56px;font-size:15px;}
 }
 
 /* FOOTER */
@@ -227,7 +247,7 @@ footer{
   <h1>MTK インデックス</h1>
 </div>
 
-<!-- 🔝 Life style（最上部へ移動） -->
+<!-- 🔝 Life style -->
 <section class="section bandA">
 <div class="container">
 <div class="section-title">Life style</div>
