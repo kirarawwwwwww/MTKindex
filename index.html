@@ -42,6 +42,7 @@ header{
   align-items:center;
   justify-content:space-between;
 }
+
 .brand{
   display:flex;
   align-items:center;
@@ -49,8 +50,10 @@ header{
 .brand img{
   height:44px;
   width:auto;
+  max-width:220px;
   display:block;
 }
+
 .contact-btn{
   background: linear-gradient(180deg, var(--blue), var(--blue2));
   color:#fff;
@@ -58,6 +61,34 @@ header{
   font-weight:900;
   border-radius:12px;
   border:1px solid rgba(255,255,255,.12);
+}
+
+/* ===== スマホ対応 ===== */
+@media (max-width: 520px){
+  .header-inner{
+    height:auto;
+    padding:14px 0;
+    flex-wrap:wrap;           /* 折り返す */
+    justify-content:center;   /* 中央寄せ */
+    gap:12px;
+  }
+
+  .brand{
+    width:100%;
+    justify-content:center;
+  }
+
+  .brand img{
+    height:36px;
+    max-width:90%;
+  }
+
+  .contact-btn{
+    width:100%;
+    text-align:center;
+    padding:10px;
+    font-size:14px;
+  }
 }
 
 /* ===== MAIN ===== */
@@ -78,16 +109,14 @@ header{
   color:rgba(15,17,21,.65);
 }
 
-/* ===== セクション枠 ===== */
-.section{
-  margin-bottom:40px;
-}
+/* ===== セクション ===== */
+.section{margin-bottom:40px;}
 .section-title{
   font-weight:950;
   margin-bottom:16px;
 }
 
-/* ===== ピル型ボタン ===== */
+/* ===== ピルボタン ===== */
 .pill-grid{
   display:grid;
   grid-template-columns: repeat(2, 1fr);
@@ -120,7 +149,6 @@ header{
   color:rgba(15,17,21,.6);
 }
 
-/* 右丸矢印 */
 .pill-icon{
   width:46px;
   height:46px;
@@ -133,7 +161,6 @@ header{
   transition:.25s ease;
 }
 
-/* hover */
 .pill-btn:hover{
   background:#000;
   color:#fff;
@@ -172,7 +199,6 @@ footer a{color:#ccc}
 <header>
   <div class="container header-inner">
     <a class="brand" href="#">
-      <!-- ロゴ -->
       <img src="logo.png" alt="A beef ロゴ">
     </a>
     <a href="#" class="contact-btn">HPへ移動</a>
@@ -187,7 +213,6 @@ footer a{color:#ccc}
       <p>よく使う項目をワンタップで</p>
     </div>
 
-    <!-- お金 -->
     <div class="section">
       <div class="section-title">💰 お金</div>
       <div class="pill-grid">
@@ -209,7 +234,6 @@ footer a{color:#ccc}
       </div>
     </div>
 
-    <!-- 自分 -->
     <div class="section">
       <div class="section-title">🧠 自分</div>
       <div class="pill-grid">
@@ -240,14 +264,12 @@ footer a{color:#ccc}
       <strong>A beef</strong><br>
       All rights reserved.
     </div>
-
     <div class="footer-links">
       <a href="#">ホーム</a>
       <a href="#">サービス</a>
       <a href="#">会社情報</a>
       <a href="#">お問い合わせ</a>
     </div>
-
     <div></div>
   </div>
 </footer>
