@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>A beef | ダッシュボード</title>
+<title>A beef | MTK インデックス</title>
 
 <style>
 :root{
@@ -27,7 +27,7 @@ body{
   font-family: system-ui, -apple-system, "Noto Sans JP", sans-serif;
   color:var(--text);
   background: var(--gradA);
-  line-height:1.8;
+  line-height:1.6;
 }
 a{text-decoration:none;color:inherit}
 .container{
@@ -49,7 +49,6 @@ header{
   align-items:center;
   justify-content:space-between;
 }
-
 .brand{display:flex;align-items:center;}
 .brand img{
   height:44px;
@@ -57,7 +56,6 @@ header{
   max-width:220px;
   display:block;
 }
-
 .contact-btn{
   background: linear-gradient(180deg, var(--blue), var(--blue2));
   color:#fff;
@@ -88,21 +86,16 @@ header{
 }
 
 /* ===== MAIN ===== */
-.main{padding:60px 0}
+.main{padding:54px 0}
 .hero{
   text-align:center;
-  margin-bottom:34px;
+  margin-bottom:18px;
 }
 .hero h1{
   margin:0;
   font-size:26px;
   font-weight:950;
   letter-spacing:.04em;
-}
-.hero p{
-  margin-top:10px;
-  font-weight:900;
-  color:rgba(15,17,21,.65);
 }
 
 /* ===== セクション（PC基準） ===== */
@@ -129,8 +122,8 @@ header{
   justify-content:space-between;
   gap:14px;
 
-  padding:20px 24px;
-  min-height:70px;
+  padding:18px 22px;
+  min-height:66px;
   border-radius:999px;
 
   background:#fff;
@@ -150,8 +143,8 @@ header{
 }
 
 .pill-icon{
-  width:46px;
-  height:46px;
+  width:44px;
+  height:44px;
   border-radius:999px;
   display:grid;
   place-items:center;
@@ -182,64 +175,73 @@ header{
 .section-card.gry{ background: var(--cardGry); }
 
 /* =========================================================
-   ✅ スマホ：1画面10個出る「超コンパクトUI」
+   ✅ スマホ：超コンパクト + 2列（同じ高さでボタン2つ）
    ========================================================= */
 @media (max-width: 520px){
 
-  .main{padding:18px 0 30px;}
+  /* 余白を詰めて「一覧感」 */
+  .main{padding:16px 0 26px;}
 
-  /* ヒーローを詰める */
+  /* タイトルだけ表示（説明文なし） */
   .hero{margin-bottom:12px;}
   .hero h1{font-size:22px;}
-  .hero p{font-size:13px;margin-top:8px;}
 
-  /* カテゴリカードを詰める */
-  .section{margin-bottom:12px;}
+  /* カテゴリカード */
+  .section{margin-bottom:10px;}
   .section-card{
-    padding:14px 12px;
-    border-radius:22px;
+    padding:12px 10px;
+    border-radius:18px;
   }
 
-  /* カテゴリタイトルを小さく */
+  /* ✅ カテゴリ文字ポイント下げる */
   .section-title{
     text-align:center;
-    margin:0 0 10px;
-    font-size:20px;
-    letter-spacing:.04em;
+    margin:0 0 8px;
+    font-size:16px;      /* ←下げた */
+    letter-spacing:.03em;
+    line-height:1.1;
   }
 
-  /* ボタン縦1列＆隙間小さく */
+  /* ✅ ボタンを2列にして1画面に10個狙い */
   .pill-grid{
-    grid-template-columns:1fr;
+    grid-template-columns: 1fr 1fr; /* 2列 */
     gap:8px;
   }
 
-  /* 🔥 超コンパクトボタン */
+  /* ✅ さらにボタンを小さく（高さ・余白） */
   .pill-btn{
-    padding:8px 14px;
-    min-height:44px;
+    padding:10px 12px;
+    min-height:44px;      /* 小さめ */
     border-radius:999px;
     background:#000;
     color:#fff;
     border:1px solid rgba(0,0,0,.14);
     box-shadow:none;
+    gap:10px;
   }
 
-  .pill-title{font-size:14px;}
-
-  /* サブテキストは消す（表示数を稼ぐ） */
+  /* スマホはタイトルだけでOK（表示数稼ぐ） */
   .pill-sub{display:none;}
 
-  /* 矢印丸を小さく */
+  .pill-title{
+    font-size:13px;
+    letter-spacing:.01em;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  /* 矢印丸も小さく */
   .pill-icon{
-    width:28px;
-    height:28px;
+    width:26px;
+    height:26px;
     font-size:14px;
     background:#fff;
     color:#000;
+    flex:0 0 auto;
   }
 
-  /* スマホhover誤爆を抑える */
+  /* hover誤爆対策 */
   .pill-btn:hover{background:#000;color:#fff;}
   .pill-btn:hover .pill-icon{transform:none;}
 }
@@ -249,7 +251,7 @@ footer{
   background:#000;
   color:#fff;
   padding:50px 0;
-  margin-top:60px;
+  margin-top:50px;
 }
 .footer-inner{
   display:grid;
@@ -279,8 +281,7 @@ footer a{color:#ccc}
   <div class="container">
 
     <div class="hero">
-      <h1>ダッシュボード</h1>
-      <p>よく使う項目をワンタップで</p>
+      <h1>MTK インデックス</h1>
     </div>
 
     <!-- 💰 お金（薄紫） -->
@@ -288,20 +289,10 @@ footer a{color:#ccc}
       <div class="section-title">💰 お金</div>
 
       <div class="pill-grid">
-        <a class="pill-btn" href="#">
-          <div class="pill-left"><div class="pill-title">購入予定</div><div class="pill-sub">欲しい物・優先度管理</div></div>
-          <div class="pill-icon">→</div>
-        </a>
-
-        <a class="pill-btn" href="#">
-          <div class="pill-left"><div class="pill-title">支出管理</div><div class="pill-sub">日付・カテゴリ・金額</div></div>
-          <div class="pill-icon">→</div>
-        </a>
-
-        <a class="pill-btn" href="#">
-          <div class="pill-left"><div class="pill-title">ランニングコスト</div><div class="pill-sub">固定費・更新月・見直し</div></div>
-          <div class="pill-icon">→</div>
-        </a>
+        <a class="pill-btn" href="#"><div class="pill-left"><div class="pill-title">購入予定</div><div class="pill-sub">欲しい物・優先度管理</div></div><div class="pill-icon">→</div></a>
+        <a class="pill-btn" href="#"><div class="pill-left"><div class="pill-title">支出管理</div><div class="pill-sub">日付・カテゴリ・金額</div></div><div class="pill-icon">→</div></a>
+        <a class="pill-btn" href="#"><div class="pill-left"><div class="pill-title">ランニングコスト</div><div class="pill-sub">固定費・更新月・見直し</div></div><div class="pill-icon">→</div></a>
+        <a class="pill-btn" href="#"><div class="pill-left"><div class="pill-title">予算</div><div class="pill-sub">月次予算・計画</div></div><div class="pill-icon">→</div></a>
       </div>
     </div>
 
@@ -310,15 +301,10 @@ footer a{color:#ccc}
       <div class="section-title">🧠 自分</div>
 
       <div class="pill-grid">
-        <a class="pill-btn" href="#">
-          <div class="pill-left"><div class="pill-title">自分とは</div><div class="pill-sub">価値観・判断基準</div></div>
-          <div class="pill-icon">→</div>
-        </a>
-
-        <a class="pill-btn" href="#">
-          <div class="pill-left"><div class="pill-title">自分ルール</div><div class="pill-sub">行動基準まとめ</div></div>
-          <div class="pill-icon">→</div>
-        </a>
+        <a class="pill-btn" href="#"><div class="pill-left"><div class="pill-title">自分とは</div><div class="pill-sub">価値観・判断基準</div></div><div class="pill-icon">→</div></a>
+        <a class="pill-btn" href="#"><div class="pill-left"><div class="pill-title">自分ルール</div><div class="pill-sub">行動基準まとめ</div></div><div class="pill-icon">→</div></a>
+        <a class="pill-btn" href="#"><div class="pill-left"><div class="pill-title">振り返り</div><div class="pill-sub">月1レビュー</div></div><div class="pill-icon">→</div></a>
+        <a class="pill-btn" href="#"><div class="pill-left"><div class="pill-title">体調</div><div class="pill-sub">睡眠・運動</div></div><div class="pill-icon">→</div></a>
       </div>
     </div>
 
@@ -327,20 +313,10 @@ footer a{color:#ccc}
       <div class="section-title">✅ 日常</div>
 
       <div class="pill-grid">
-        <a class="pill-btn" href="#">
-          <div class="pill-left"><div class="pill-title">日常利用</div><div class="pill-sub">リンク・手続き・チェック</div></div>
-          <div class="pill-icon">→</div>
-        </a>
-
-        <a class="pill-btn" href="#">
-          <div class="pill-left"><div class="pill-title">タスク管理</div><div class="pill-sub">今週 / 今月 / いつか</div></div>
-          <div class="pill-icon">→</div>
-        </a>
-
-        <a class="pill-btn" href="#">
-          <div class="pill-left"><div class="pill-title">パートナー共有</div><div class="pill-sub">買い物・ルール・ToDo</div></div>
-          <div class="pill-icon">→</div>
-        </a>
+        <a class="pill-btn" href="#"><div class="pill-left"><div class="pill-title">日常利用</div><div class="pill-sub">リンク集</div></div><div class="pill-icon">→</div></a>
+        <a class="pill-btn" href="#"><div class="pill-left"><div class="pill-title">タスク</div><div class="pill-sub">今週/今月</div></div><div class="pill-icon">→</div></a>
+        <a class="pill-btn" href="#"><div class="pill-left"><div class="pill-title">共有</div><div class="pill-sub">パートナー</div></div><div class="pill-icon">→</div></a>
+        <a class="pill-btn" href="#"><div class="pill-left"><div class="pill-title">買い物</div><div class="pill-sub">メモ</div></div><div class="pill-icon">→</div></a>
       </div>
     </div>
 
@@ -349,15 +325,10 @@ footer a{color:#ccc}
       <div class="section-title">🎮 遊び</div>
 
       <div class="pill-grid">
-        <a class="pill-btn" href="#">
-          <div class="pill-left"><div class="pill-title">したい遊びリスト</div><div class="pill-sub">やりたいことストック</div></div>
-          <div class="pill-icon">→</div>
-        </a>
-
-        <a class="pill-btn" href="#">
-          <div class="pill-left"><div class="pill-title">やったことログ</div><div class="pill-sub">良かった点・学び</div></div>
-          <div class="pill-icon">→</div>
-        </a>
+        <a class="pill-btn" href="#"><div class="pill-left"><div class="pill-title">遊びリスト</div><div class="pill-sub">候補</div></div><div class="pill-icon">→</div></a>
+        <a class="pill-btn" href="#"><div class="pill-left"><div class="pill-title">やったこと</div><div class="pill-sub">ログ</div></div><div class="pill-icon">→</div></a>
+        <a class="pill-btn" href="#"><div class="pill-left"><div class="pill-title">旅行</div><div class="pill-sub">計画</div></div><div class="pill-icon">→</div></a>
+        <a class="pill-btn" href="#"><div class="pill-left"><div class="pill-title">映画</div><div class="pill-sub">メモ</div></div><div class="pill-icon">→</div></a>
       </div>
     </div>
 
@@ -366,15 +337,10 @@ footer a{color:#ccc}
       <div class="section-title">💼 仕事</div>
 
       <div class="pill-grid">
-        <a class="pill-btn" href="#">
-          <div class="pill-left"><div class="pill-title">仕事関連</div><div class="pill-sub">目標・案件・メモ</div></div>
-          <div class="pill-icon">→</div>
-        </a>
-
-        <a class="pill-btn" href="#">
-          <div class="pill-left"><div class="pill-title">アプリ作成関連</div><div class="pill-sub">アイデア・仕様・手順</div></div>
-          <div class="pill-icon">→</div>
-        </a>
+        <a class="pill-btn" href="#"><div class="pill-left"><div class="pill-title">仕事関連</div><div class="pill-sub">案件</div></div><div class="pill-icon">→</div></a>
+        <a class="pill-btn" href="#"><div class="pill-left"><div class="pill-title">アプリ作成</div><div class="pill-sub">開発</div></div><div class="pill-icon">→</div></a>
+        <a class="pill-btn" href="#"><div class="pill-left"><div class="pill-title">学習</div><div class="pill-sub">メモ</div></div><div class="pill-icon">→</div></a>
+        <a class="pill-btn" href="#"><div class="pill-left"><div class="pill-title">資料</div><div class="pill-sub">リンク</div></div><div class="pill-icon">→</div></a>
       </div>
     </div>
 
