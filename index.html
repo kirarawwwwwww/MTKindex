@@ -9,10 +9,8 @@
 :root{
   --blue:#2aa7d7;
   --blue2:#1b8fb8;
-
   --cardLav:#dcd0f0;
   --cardGry:#e8e8e8;
-
   --shadowH: 0 10px 24px rgba(0,0,0,.18);
 }
 
@@ -23,16 +21,13 @@ body{
   font-family: system-ui, -apple-system, "Noto Sans JP", sans-serif;
   background: linear-gradient(180deg, #ffffff, #f7f3ea 100%);
   color:#0f1115;
-  line-height:1.5;
-
-  /* フッターを常に下へ */
   display:flex;
   flex-direction:column;
 }
 
 a{text-decoration:none;color:inherit}
 .container{
-  width:min(1120px, calc(100% - 28px));
+  width:min(1120px, calc(100% - 24px));
   margin:auto;
 }
 
@@ -48,17 +43,14 @@ header{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:14px 0;
-  gap:12px;
+  padding:12px 0;
 }
-.brand{display:flex;align-items:center;}
 .brand img{
   height:44px;
-  width:auto;
   display:block;
 }
 
-/* デフォルト（PC） */
+/* PCボタン */
 .contact-btn{
   display:inline-flex;
   align-items:center;
@@ -68,140 +60,134 @@ header{
   font-weight:900;
   padding:10px 16px;
   border-radius:12px;
-  border:1px solid rgba(255,255,255,.12);
-  min-width:200px;
+  min-width:180px;
 }
 
-/* スマホだけ：小さい四角ボタンを右端、ロゴと同じ高さ */
-@media (max-width: 520px){
-  .brand img{height:34px;}
+/* スマホ：小さい四角 */
+@media (max-width:520px){
+  .brand img{height:32px;}
   .contact-btn{
-    width:96px;
-    height:34px;
-    padding:0 10px;
-    border-radius:10px;
-    font-size:12px;
+    width:88px;
+    height:32px;
+    padding:0;
+    border-radius:8px;
+    font-size:11px;
     min-width:auto;
-    line-height:1;
-    white-space:nowrap;
   }
 }
 
 /* ================= MAIN ================= */
 main{
   flex:1;
-  padding:16px 0 26px;
+  padding:14px 0 22px;
 }
 
 .hero{
   text-align:center;
-  margin:10px 0 12px;
+  margin-bottom:12px;
 }
 .hero h1{
   margin:0;
   font-size:20px;
   font-weight:900;
-  letter-spacing:.04em;
 }
 
-/* カテゴリカード */
+/* カテゴリ */
 .section{
   margin-bottom:12px;
   border-radius:18px;
-  padding:12px 10px;
+  padding:12px 8px;
 }
-.section.lav{background:var(--cardLav);}
-.section.gry{background:var(--cardGry);}
+.lav{background:var(--cardLav);}
+.gry{background:var(--cardGry);}
 
 .section-title{
   text-align:center;
-  font-size:15px;
+  font-size:14px;
   font-weight:900;
-  margin:0 0 8px;
+  margin-bottom:8px;
 }
 
-/* ===== グリッド（デフォルトは2列） ===== */
+/* ================= グリッド ================= */
+
+/* デフォルト（PCなど） */
 .pill-grid{
   display:grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap:8px;
 }
 
-/* ✅ スマホのみ：3列にする */
-@media (max-width: 520px){
+/* ✅ スマホは強制3列 */
+@media (max-width:520px){
   .pill-grid{
-    grid-template-columns: 1fr 1fr 1fr; /* 3列 */
-    gap:8px;
+    grid-template-columns: repeat(3, 1fr) !important;
   }
 }
 
-/* 超コンパクトボタン（サイズはこのまま） */
+/* ================= ボタン ================= */
 .pill-btn{
   display:flex;
   align-items:center;
   justify-content:space-between;
   background:#000;
   color:#fff;
-  padding:8px 10px;
-  min-height:40px;
+  padding:6px 8px;
+  min-height:36px;
   border-radius:999px;
-  font-size:12px;
+  font-size:11px;
   font-weight:900;
 }
+
 .pill-title{
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
-  padding-right:6px;
 }
+
 .pill-icon{
-  width:22px;
-  height:22px;
-  border-radius:999px;
+  width:18px;
+  height:18px;
+  border-radius:50%;
   background:#fff;
   color:#000;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:12px;
-  flex:0 0 auto;
+  font-size:10px;
 }
 
-/* PCだけ少しゆったり */
-@media (min-width: 900px){
+/* PC拡張 */
+@media (min-width:900px){
   main{padding:40px 0 60px;}
   .hero h1{font-size:26px;}
   .section{padding:22px 18px;border-radius:26px;}
-  .section-title{font-size:20px;margin-bottom:14px;}
-  .pill-grid{grid-template-columns: repeat(3, 1fr); gap:14px;}
-  .pill-btn{min-height:56px;font-size:14px;padding:14px 16px;}
-  .pill-icon{width:30px;height:30px;font-size:14px;}
+  .section-title{font-size:18px;}
+  .pill-btn{min-height:50px;font-size:14px;padding:12px 14px;}
+  .pill-icon{width:26px;height:26px;font-size:13px;}
 }
 
 /* ================= FOOTER ================= */
 footer{
   background:#000;
   color:#fff;
-  padding:32px 0;
-  margin-top:10px;
+  padding:28px 0;
 }
-
 .footer-inner{
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap:24px;
+  gap:20px;
 }
 .footer-left{
-  font-size:14px;
-  line-height:1.8;
+  font-size:13px;
+  line-height:1.7;
 }
 .footer-links a{
   display:block;
-  padding:4px 0;
+  padding:3px 0;
   color:#ccc;
-  font-size:14px;
+  font-size:13px;
 }
-@media (max-width:700px){
+@media(max-width:700px){
   .footer-inner{grid-template-columns:1fr;}
 }
 </style>
@@ -225,68 +211,42 @@ footer{
       <h1>MTK インデックス</h1>
     </div>
 
-    <!-- 💰 お金（薄紫） -->
+    <!-- お金 -->
     <section class="section lav">
       <div class="section-title">💰 お金</div>
       <div class="pill-grid">
-        <a class="pill-btn" href="#"><span class="pill-title">購入予定</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">支出管理</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">ランニングコスト</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">予算</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">資産</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">税金</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn"><span class="pill-title">予定</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn"><span class="pill-title">支出</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn"><span class="pill-title">ランコス</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn"><span class="pill-title">予算</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn"><span class="pill-title">資産</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn"><span class="pill-title">税</span><span class="pill-icon">→</span></a>
       </div>
     </section>
 
-    <!-- 🧠 自分（薄グレー） -->
+    <!-- 自分 -->
     <section class="section gry">
       <div class="section-title">🧠 自分</div>
       <div class="pill-grid">
-        <a class="pill-btn" href="#"><span class="pill-title">自分とは</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">自分ルール</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">振り返り</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">体調</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">目標</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">学び</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn"><span class="pill-title">自分</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn"><span class="pill-title">ルール</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn"><span class="pill-title">振返</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn"><span class="pill-title">体調</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn"><span class="pill-title">目標</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn"><span class="pill-title">学び</span><span class="pill-icon">→</span></a>
       </div>
     </section>
 
-    <!-- ✅ 日常（薄紫） -->
+    <!-- 日常 -->
     <section class="section lav">
       <div class="section-title">✅ 日常</div>
       <div class="pill-grid">
-        <a class="pill-btn" href="#"><span class="pill-title">日常利用</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">タスク管理</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">共有</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">買い物</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">家事</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">連絡</span><span class="pill-icon">→</span></a>
-      </div>
-    </section>
-
-    <!-- 🎮 遊び（薄グレー） -->
-    <section class="section gry">
-      <div class="section-title">🎮 遊び</div>
-      <div class="pill-grid">
-        <a class="pill-btn" href="#"><span class="pill-title">遊びリスト</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">やったこと</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">旅行</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">映画</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">本</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">外食</span><span class="pill-icon">→</span></a>
-      </div>
-    </section>
-
-    <!-- 💼 仕事（薄紫） -->
-    <section class="section lav">
-      <div class="section-title">💼 仕事</div>
-      <div class="pill-grid">
-        <a class="pill-btn" href="#"><span class="pill-title">仕事関連</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">アプリ作成</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">学習</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">資料</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">会議</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">企画</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn"><span class="pill-title">日常</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn"><span class="pill-title">タスク</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn"><span class="pill-title">共有</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn"><span class="pill-title">買物</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn"><span class="pill-title">家事</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn"><span class="pill-title">連絡</span><span class="pill-icon">→</span></a>
       </div>
     </section>
 
@@ -295,22 +255,18 @@ footer{
 
 <footer>
   <div class="container footer-inner">
-
     <div class="footer-left">
       <strong>A beef</strong><br>
       株式会社MTK<br>
       代表取締役
     </div>
-
     <div class="footer-links">
       <a href="#">ホーム</a>
       <a href="#">サービス</a>
       <a href="#">会社概要</a>
       <a href="#">お問合せ</a>
     </div>
-
     <div></div>
-
   </div>
 </footer>
 
