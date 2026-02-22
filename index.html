@@ -357,17 +357,14 @@ footer{
 <footer>
   <div class="container footer-inner">
 
-    <!-- 左：会社情報 -->
+    <!-- 会社情報 -->
     <div class="footer-left">
       <strong>A beef</strong><br>
       株式会社MTK<br>
       代表取締役
     </div>
 
-    <!-- 中央：空白 -->
-    <div class="footer-spacer"></div>
-
-    <!-- 右：フッターリンク（PCは右、スマホは中央） -->
+    <!-- フッターリンク -->
     <div class="footer-links">
       <a href="#">ホーム</a>
       <a href="#">サービス</a>
@@ -388,7 +385,7 @@ footer{
 
 .footer-inner{
   display:grid;
-  grid-template-columns:1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap:20px;
   align-items:start;
 }
@@ -398,7 +395,6 @@ footer{
   line-height:1.7;
 }
 
-/* PC時：右カラムに置いて右寄せ */
 .footer-links{
   grid-column:3;
   justify-self:end;
@@ -411,17 +407,17 @@ footer{
   font-size:13px;
 }
 
-/* スマホ時：リンクだけ画面の中央へ（全カラムにまたがせる） */
+/* スマホ：リンクは中央、下に空きが出ないように1カラム化 */
 @media (max-width:700px){
-  .footer-links{
-    grid-column:1 / -1;   /* 1列目〜最終列まで全部使う */
-    grid-row:2;           /* 会社情報の下の段にする */
-    justify-self:center;  /* 画面中央に配置 */
-    text-align:center;    /* 文字も中央揃え */
-    margin-top:6px;
+  .footer-inner{
+    grid-template-columns:1fr; /* 1列にする */
+    gap:14px;                 /* 余白を適度に */
   }
-  .footer-spacer{
-    display:none;         /* 真ん中の空白はスマホでは不要 */
+  .footer-links{
+    grid-column:auto;
+    justify-self:center;      /* ブロックを中央 */
+    text-align:center;        /* 文字も中央 */
+    margin-top:0;             /* 変な空きを作らない */
   }
 }
 </style>
