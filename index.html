@@ -12,15 +12,24 @@
 :root{
   --blue:#2aa7d7;
   --blue2:#1b8fb8;
+
   --pageBg:#dfe5ee;
+
   --bandA: rgba(255,255,255,.32);
   --bandB: rgba(0,0,0,.03);
   --rule: rgba(0,0,0,.14);
+
+  /* ✅ 新ボタンカラー */
+  --btn1:#1e2a38;
+  --btn2:#243447;
+  --btnHover1:#26384d;
+  --btnHover2:#2d435c;
+
   --shadowH: 0 10px 24px rgba(0,0,0,.18);
 }
 
 *{box-sizing:border-box}
-html, body{height:100%;}
+html,body{height:100%;}
 
 body{
   margin:0;
@@ -95,7 +104,6 @@ main{
   letter-spacing:.08em;
 }
 
-/* セクション */
 .section{
   width:100%;
   border-top:1px solid var(--rule);
@@ -117,45 +125,47 @@ main{
 .pill-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:8px;
+  gap:10px;
 }
 
+/* ✅ ボタン新デザイン */
 .pill-btn{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  background:#000;
+  background:linear-gradient(180deg,var(--btn1),var(--btn2));
   color:#fff;
-  padding:6px 8px;
-  min-height:36px;
-  border-radius:999px;
-  font-size:11px;
+  padding:8px 12px;
+  min-height:40px;
+  border-radius:14px;
+  font-size:12px;
   font-weight:800;
+  box-shadow:0 4px 10px rgba(0,0,0,.15);
+  transition:all .2s ease;
 }
 
-.pill-title{
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
+.pill-btn:hover{
+  background:linear-gradient(180deg,var(--btnHover1),var(--btnHover2));
+  transform:translateY(-2px);
 }
 
 .pill-icon{
-  width:18px;
-  height:18px;
+  width:20px;
+  height:20px;
   border-radius:50%;
-  background:#fff;
-  color:#000;
+  background:#5fa8d3;
+  color:#fff;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:10px;
+  font-size:11px;
 }
 
 @media (min-width:900px){
   .hero h1{font-size:28px;}
   .section-title{font-size:20px;}
-  .pill-grid{grid-template-columns:repeat(4,1fr);gap:12px;}
-  .pill-btn{min-height:48px;font-size:14px;padding:12px 14px;}
+  .pill-grid{grid-template-columns:repeat(4,1fr);gap:14px;}
+  .pill-btn{min-height:52px;font-size:14px;padding:14px;}
   .pill-icon{width:26px;height:26px;font-size:13px;}
 }
 
@@ -205,7 +215,6 @@ footer{
     </div>
   </div>
 
-  <!-- 💰 -->
   <section class="section bandA">
     <div class="container">
       <div class="section-title">💰 お金</div>
@@ -216,21 +225,6 @@ footer{
         <a class="pill-btn" href="#"><span>予算</span><span class="pill-icon">→</span></a>
         <a class="pill-btn" href="#"><span>資産</span><span class="pill-icon">→</span></a>
         <a class="pill-btn" href="#"><span>税</span><span class="pill-icon">→</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 🧠 -->
-  <section class="section bandB">
-    <div class="container">
-      <div class="section-title">🧠 自分</div>
-      <div class="pill-grid">
-        <a class="pill-btn" href="#"><span>自分</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span>ルール</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span>振返</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span>体調</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span>目標</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span>学び</span><span class="pill-icon">→</span></a>
       </div>
     </div>
   </section>
@@ -250,7 +244,6 @@ footer{
       <a href="#">会社概要</a>
       <a href="#">お問合せ</a>
     </div>
-    <div></div>
   </div>
 </footer>
 
