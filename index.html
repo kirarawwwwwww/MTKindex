@@ -45,7 +45,6 @@ header{
 .brand{
   display:flex;
   align-items:center;
-  gap:10px;
 }
 .brand img{
   height:44px;
@@ -102,26 +101,18 @@ header{
   display:flex;
   align-items:center;
   justify-content:space-between;
-
   padding:20px 24px;
   min-height:70px;
   border-radius:999px;
-
   background:#fff;
   border:1px solid rgba(15,17,21,.12);
   box-shadow: var(--shadow2);
-
   font-weight:950;
   transition:.25s ease;
 }
 
-.pill-left{
-  min-width:0;
-}
-.pill-title{
-  margin:0;
-  font-size:15px;
-}
+.pill-left{min-width:0;}
+.pill-title{margin:0;font-size:15px;}
 .pill-sub{
   margin-top:6px;
   font-size:12px;
@@ -142,7 +133,7 @@ header{
   transition:.25s ease;
 }
 
-/* hover状態 */
+/* hover */
 .pill-btn:hover{
   background:#000;
   color:#fff;
@@ -169,12 +160,9 @@ footer{
   gap:30px;
 }
 footer a{color:#ccc}
-.footer-links a{
-  display:block;
-  padding:4px 0;
-}
+.footer-links a{display:block;padding:4px 0;}
 @media(max-width:700px){
-  .footer-inner{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -184,8 +172,8 @@ footer a{color:#ccc}
 <header>
   <div class="container header-inner">
     <a class="brand" href="#">
-      <!-- ここ：画像ファイル名をリポジトリの実名に合わせています -->
-      <img src="ロゴ横長.png" alt="A beef ロゴ">
+      <!-- ロゴ -->
+      <img src="logo.png" alt="A beef ロゴ">
     </a>
     <a href="#" class="contact-btn">HPへ移動</a>
   </div>
