@@ -96,15 +96,12 @@ header{
   display:flex;
   align-items:center;
   justify-content:space-between;
-
   padding:20px 24px;
   min-height:70px;
   border-radius:999px;
-
   background:#fff;
   border:1px solid rgba(15,17,21,.12);
   box-shadow: var(--shadow2);
-
   font-weight:950;
   transition:.25s ease;
 }
@@ -136,7 +133,7 @@ header{
   transition:.25s ease;
 }
 
-/* hover状態（画像参考デザイン） */
+/* hover状態 */
 .pill-btn:hover{
   background:#000;
   color:#fff;
@@ -178,7 +175,8 @@ footer a{color:#ccc}
 <header>
   <div class="container header-inner">
     <a class="brand" href="#">
-      <img src="images/logo-beef.png" alt="A beef ロゴ">
+      <!-- ★ここが修正ポイント -->
+      <img src="横ロゴ.png" alt="A beef ロゴ">
     </a>
     <a href="#" class="contact-btn">HPへ移動</a>
   </div>
@@ -196,6 +194,7 @@ footer a{color:#ccc}
     <div class="section">
       <div class="section-title">💰 お金</div>
       <div class="pill-grid">
+
         <a class="pill-btn" href="#">
           <div class="pill-left">
             <div class="pill-title">購入予定</div>
@@ -211,6 +210,7 @@ footer a{color:#ccc}
           </div>
           <div class="pill-icon">→</div>
         </a>
+
       </div>
     </div>
 
@@ -218,6 +218,7 @@ footer a{color:#ccc}
     <div class="section">
       <div class="section-title">🧠 自分</div>
       <div class="pill-grid">
+
         <a class="pill-btn" href="#">
           <div class="pill-left">
             <div class="pill-title">自分とは</div>
@@ -233,6 +234,7 @@ footer a{color:#ccc}
           </div>
           <div class="pill-icon">→</div>
         </a>
+
       </div>
     </div>
 
@@ -241,6 +243,7 @@ footer a{color:#ccc}
 
 <footer>
   <div class="container footer-inner">
+
     <div>
       <strong>A beef</strong><br>
       All rights reserved.
@@ -254,6 +257,7 @@ footer a{color:#ccc}
     </div>
 
     <div></div>
+
   </div>
 </footer>
 
