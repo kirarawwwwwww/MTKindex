@@ -397,7 +397,7 @@ footer{
   line-height:1.7;
 }
 
-/* 右カラム固定 */
+/* PC：右寄せ */
 .footer-links{
   justify-self:end;
 }
@@ -409,7 +409,13 @@ footer{
   font-size:13px;
 }
 
-/* ※スマホ用の縦並び指定は削除 */
+/* スマホ：中央寄せ */
+@media(max-width:700px){
+  .footer-links{
+    justify-self:center;
+    text-align:center;
+  }
+}
 </style>
 
 <script>
