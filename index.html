@@ -356,20 +356,73 @@ footer{
 
 <footer>
   <div class="container footer-inner">
+
+    <!-- 左：会社情報 -->
     <div class="footer-left">
       <strong>A beef</strong><br>
       株式会社MTK<br>
       代表取締役
     </div>
+
+    <!-- 中央：空白 -->
+    <div class="footer-spacer"></div>
+
+    <!-- 右：フッターリンク -->
     <div class="footer-links">
       <a href="#">ホーム</a>
       <a href="#">サービス</a>
       <a href="#">会社概要</a>
       <a href="#">お問合せ</a>
     </div>
-    <div></div>
+
   </div>
 </footer>
+
+<!-- フッター用 追加CSS -->
+<style>
+/* ================= FOOTER ================= */
+footer{
+  background:#000;
+  color:#fff;
+  padding:28px 0;
+}
+
+.footer-inner{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:20px;
+}
+
+.footer-left{
+  font-size:13px;
+  line-height:1.7;
+}
+
+/* 右カラムに表示 */
+.footer-links{
+  justify-self:end;
+}
+
+.footer-links a{
+  display:block;
+  padding:4px 0;
+  color:#ccc;
+  font-size:13px;
+}
+
+/* スマホ時は縦並び */
+@media(max-width:700px){
+  .footer-inner{
+    grid-template-columns:1fr;
+  }
+  .footer-links{
+    justify-self:start;
+  }
+  .footer-spacer{
+    display:none;
+  }
+}
+</style>
 
 <script>
   (function(){
