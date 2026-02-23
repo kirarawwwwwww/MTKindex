@@ -9,6 +9,23 @@
 <title>A beef | MTK インデックス</title>
 
 <!-- =========================================================
+  ヘッダーHTML
+========================================================= -->
+<header>
+  <div class="container header-inner">
+    <a class="brand" href="#">
+      <img src="logo.png" alt="A beef ロゴ">
+    </a>
+
+    <div class="header-actions">
+      <a href="#" class="contact-btn">管理</a>
+      <button id="refreshBtn" class="refresh-btn" type="button" aria-label="更新" title="更新">⟳</button>
+    </div>
+  </div>
+</header>
+
+  
+<!-- =========================================================
   ヘッダーCSS
 ========================================================= -->
 <style>
@@ -188,6 +205,59 @@ header{
 </style>
 
 <!-- =========================================================
+  body HTML
+========================================================= -->
+<main>
+
+  <div class="container hero">
+    <h1>MTK インデックス</h1>
+  </div>
+
+  <!-- Life style -->
+  <section class="section bandA">
+    <div class="container">
+      <div class="section-title">Life style</div>
+      <div class="pill-grid">
+        <a class="pill-btn" href="#"><span class="pill-title">時刻表</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">購入リスト</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">P共有</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">Wタスク</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">Pタスク</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">支出管理</span><span class="pill-icon">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section class="section bandB">
+    <div class="container">
+      <div class="section-title">Work</div>
+      <div class="pill-grid grid-1">
+        <a class="pill-btn" href="#"><span class="pill-title">仕事管理画面へ移動</span><span class="pill-icon">→</span></a>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Private -->
+  <section class="section bandA">
+    <div class="container">
+      <div class="section-title">Private</div>
+      <div class="pill-grid">
+        <a class="pill-btn" href="#"><span class="pill-title">ルール</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">名言</span><span class="pill-icon">→</span></a>
+
+        <!-- 追加 -->
+        <a class="pill-btn" href="#"><span class="pill-title">やりたい事</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">行きたい場所</span><span class="pill-icon">→</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+  
+<!-- =========================================================
   body CSS
 ========================================================= -->
 <style>
@@ -341,6 +411,79 @@ main{
 }
 </style>
 
+<!-- =========================================================
+  フッターHTML
+========================================================= -->
+<footer class="site-footer">
+  <div class="container footer-wrap">
+
+    <!-- 上：リンク群（スマホは画像みたいに中央・複数行） -->
+    <nav class="footer-nav" aria-label="フッターナビゲーション">
+      <div class="footer-nav-row">
+        <a href="#" class="footer-link">ご利用ガイド</a>
+        <span class="sep" aria-hidden="true">｜</span>
+        <a href="#" class="footer-link">お問い合わせ</a>
+        <span class="sep" aria-hidden="true">｜</span>
+        <a href="#" class="footer-link">会社概要</a>
+      </div>
+
+      <div class="footer-nav-row">
+        <a href="#" class="footer-link">利用規約</a>
+        <span class="sep" aria-hidden="true">｜</span>
+        <a href="#" class="footer-link">プライバシーポリシー</a>
+        <span class="sep" aria-hidden="true">｜</span>
+        <a href="#" class="footer-link">特定商取引法に基づく表記</a>
+      </div>
+
+      <div class="footer-nav-row">
+        <a href="#" class="footer-link">採用情報</a>
+        <span class="sep" aria-hidden="true">｜</span>
+        <a href="#" class="footer-link">お知らせ</a>
+      </div>
+    </nav>
+
+    <div class="footer-rule" aria-hidden="true"></div>
+
+    <!-- SNS -->
+    <div class="footer-social" aria-label="ソーシャルリンク">
+      <a class="social-btn" href="#" aria-label="X（旧Twitter）">
+        <!-- X icon (svg) -->
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M18.9 2H22l-6.8 7.8L23 22h-6.8l-5.3-6.9L4.7 22H1.6l7.3-8.4L1 2h7l4.8 6.3L18.9 2zm-1.2 18h1.7L7.1 3.9H5.3L17.7 20z"/>
+        </svg>
+      </a>
+
+      <a class="social-btn" href="#" aria-label="Instagram">
+        <!-- Instagram icon (svg) -->
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9z"/>
+          <path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+          <path d="M17.5 6.3a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="footer-rule" aria-hidden="true"></div>
+
+    <!-- 下：ロゴ（logo.png） -->
+    <div class="footer-brand">
+      <img src="logo.png" alt="A beef" class="footer-logo">
+
+      <div class="footer-mini-links" aria-label="補助リンク">
+        <a href="#" class="footer-link subtle">ホーム</a>
+        <span class="sep" aria-hidden="true">｜</span>
+        <a href="#" class="footer-link subtle">サービス</a>
+        <span class="sep" aria-hidden="true">｜</span>
+        <a href="#" class="footer-link subtle">サポート</a>
+      </div>
+
+      <div class="footer-copy">© <span id="footerYear"></span> A beef / 株式会社MTK</div>
+    </div>
+
+  </div>
+</footer>
+
+  
 <!-- =========================================================
   フッターCSS（元コードのNEW FOOTER用スタイル）
   ※ 元のHTMLにあった <style> をそのまま移動
@@ -506,145 +649,8 @@ main{
 
 <body>
 
-<!-- =========================================================
-  ヘッダーHTML
-========================================================= -->
-<header>
-  <div class="container header-inner">
-    <a class="brand" href="#">
-      <img src="logo.png" alt="A beef ロゴ">
-    </a>
 
-    <div class="header-actions">
-      <a href="#" class="contact-btn">管理</a>
-      <button id="refreshBtn" class="refresh-btn" type="button" aria-label="更新" title="更新">⟳</button>
-    </div>
-  </div>
-</header>
 
-<!-- =========================================================
-  body HTML
-========================================================= -->
-<main>
-
-  <div class="container hero">
-    <h1>MTK インデックス</h1>
-  </div>
-
-  <!-- Life style -->
-  <section class="section bandA">
-    <div class="container">
-      <div class="section-title">Life style</div>
-      <div class="pill-grid">
-        <a class="pill-btn" href="#"><span class="pill-title">時刻表</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">購入リスト</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">P共有</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">Wタスク</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">Pタスク</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">支出管理</span><span class="pill-icon">→</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Work -->
-  <section class="section bandB">
-    <div class="container">
-      <div class="section-title">Work</div>
-      <div class="pill-grid grid-1">
-        <a class="pill-btn" href="#"><span class="pill-title">仕事管理画面へ移動</span><span class="pill-icon">→</span></a>
-        
-      </div>
-    </div>
-  </section>
-
-  <!-- Private -->
-  <section class="section bandA">
-    <div class="container">
-      <div class="section-title">Private</div>
-      <div class="pill-grid">
-        <a class="pill-btn" href="#"><span class="pill-title">ルール</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">名言</span><span class="pill-icon">→</span></a>
-
-        <!-- 追加 -->
-        <a class="pill-btn" href="#"><span class="pill-title">やりたい事</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">行きたい場所</span><span class="pill-icon">→</span></a>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- =========================================================
-  フッターHTML
-========================================================= -->
-<footer class="site-footer">
-  <div class="container footer-wrap">
-
-    <!-- 上：リンク群（スマホは画像みたいに中央・複数行） -->
-    <nav class="footer-nav" aria-label="フッターナビゲーション">
-      <div class="footer-nav-row">
-        <a href="#" class="footer-link">ご利用ガイド</a>
-        <span class="sep" aria-hidden="true">｜</span>
-        <a href="#" class="footer-link">お問い合わせ</a>
-        <span class="sep" aria-hidden="true">｜</span>
-        <a href="#" class="footer-link">会社概要</a>
-      </div>
-
-      <div class="footer-nav-row">
-        <a href="#" class="footer-link">利用規約</a>
-        <span class="sep" aria-hidden="true">｜</span>
-        <a href="#" class="footer-link">プライバシーポリシー</a>
-        <span class="sep" aria-hidden="true">｜</span>
-        <a href="#" class="footer-link">特定商取引法に基づく表記</a>
-      </div>
-
-      <div class="footer-nav-row">
-        <a href="#" class="footer-link">採用情報</a>
-        <span class="sep" aria-hidden="true">｜</span>
-        <a href="#" class="footer-link">お知らせ</a>
-      </div>
-    </nav>
-
-    <div class="footer-rule" aria-hidden="true"></div>
-
-    <!-- SNS -->
-    <div class="footer-social" aria-label="ソーシャルリンク">
-      <a class="social-btn" href="#" aria-label="X（旧Twitter）">
-        <!-- X icon (svg) -->
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M18.9 2H22l-6.8 7.8L23 22h-6.8l-5.3-6.9L4.7 22H1.6l7.3-8.4L1 2h7l4.8 6.3L18.9 2zm-1.2 18h1.7L7.1 3.9H5.3L17.7 20z"/>
-        </svg>
-      </a>
-
-      <a class="social-btn" href="#" aria-label="Instagram">
-        <!-- Instagram icon (svg) -->
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9z"/>
-          <path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
-          <path d="M17.5 6.3a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/>
-        </svg>
-      </a>
-    </div>
-
-    <div class="footer-rule" aria-hidden="true"></div>
-
-    <!-- 下：ロゴ（logo.png） -->
-    <div class="footer-brand">
-      <img src="logo.png" alt="A beef" class="footer-logo">
-
-      <div class="footer-mini-links" aria-label="補助リンク">
-        <a href="#" class="footer-link subtle">ホーム</a>
-        <span class="sep" aria-hidden="true">｜</span>
-        <a href="#" class="footer-link subtle">サービス</a>
-        <span class="sep" aria-hidden="true">｜</span>
-        <a href="#" class="footer-link subtle">サポート</a>
-      </div>
-
-      <div class="footer-copy">© <span id="footerYear"></span> A beef / 株式会社MTK</div>
-    </div>
-
-  </div>
-</footer>
 
 <!-- =========================================================
   フッターJS（元コードそのまま）
