@@ -47,6 +47,8 @@
   --shadowSoft: 0 10px 30px rgba(15,23,42,.15);
   --admin1:#9b5cff;
   --admin2:#7c3aed;
+  --life1:#a78bfa;
+  --life2:#7c3aed;
 }
 
 *{box-sizing:border-box}
@@ -420,7 +422,13 @@ main{
   .pill-btn{min-height:56px; font-size:15px;}
   .section-title{font-size:20px;}
 }
+  /* Life style セクションのボタンだけ紫にする */
+.section.bandA:first-of-type .pill-btn{
+  background:linear-gradient(180deg,var(--life1),var(--life2));
+  border:1px solid rgba(255,255,255,.28);
+}
 </style>
+
 
 <!-- =========================================================
   フッターHTML
