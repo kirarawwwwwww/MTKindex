@@ -45,6 +45,8 @@
 
   --shadowH: 0 10px 24px rgba(0,0,0,.18);
   --shadowSoft: 0 10px 30px rgba(15,23,42,.15);
+  --admin1:#9b5cff;
+  --admin2:#7c3aed;
 }
 
 *{box-sizing:border-box}
@@ -128,6 +130,10 @@ header{
   border:1px solid rgba(255,255,255,.12);
   min-width:180px;
   letter-spacing:.04em;
+}
+  /* 管理ボタンだけ色変更 */
+.contact-btn{
+  background:linear-gradient(180deg,var(--admin1),var(--admin2));
 }
 
 .refresh-btn{
