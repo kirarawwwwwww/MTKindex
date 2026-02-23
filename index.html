@@ -1,4 +1,4 @@
-<!doctype html>
+ƒ<!doctype html>
 <html lang="ja">
 <head>
 <meta charset="utf-8">
@@ -814,10 +814,10 @@ main{
   <script>
 (function(){
   // W/Pで出したい項目名（好きに変更OK）
-  const itemsByWP = {
-    W: ["時刻表", "購入リスト", "P共有", "Wタスク", "支出管理", "リマインダー"],
-    P: ["ルール", "名言", "やりたい事", "行きたい場所", "Pタスク"]
-  };
+ 　const itemsByWP = {
+  W: ["仕事タスク", "お客様対応タスク", "経費"],
+  P: ["Pタスク", "P支出管理"]
+};
 
   const taskForm = document.getElementById("taskForm");
   const wpSelect = document.getElementById("wpSelect");
@@ -846,6 +846,8 @@ main{
       itemSelect.appendChild(opt);
       return;
     }
+    // W/Pを変えたらカテゴリ2は必ず未選択に戻す
+　　 itemSelect.value = "";
 
     itemSelect.disabled = false;
 
