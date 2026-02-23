@@ -49,6 +49,8 @@
   --admin2:#7c3aed;
   --life1:#a78bfa;
   --life2:#7c3aed;
+  --private1:#34d399;
+  --private2:#059669;
 }
 
 *{box-sizing:border-box}
@@ -425,6 +427,11 @@ main{
   /* Life style セクションのボタンだけ紫にする */
 .section.bandA:first-of-type .pill-btn{
   background:linear-gradient(180deg,var(--life1),var(--life2));
+  border:1px solid rgba(255,255,255,.28);
+}
+  /* Private セクションのボタンだけ緑にする */
+.section.bandA:last-of-type .pill-btn{
+  background:linear-gradient(180deg,var(--private1),var(--private2));
   border:1px solid rgba(255,255,255,.28);
 }
 </style>
