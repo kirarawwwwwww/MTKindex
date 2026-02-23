@@ -69,10 +69,10 @@ body::before{
   position:fixed;
   inset:0;
   z-index:-1;
-
   background:
-    linear-gradient(rgba(223,229,238,.55), rgba(223,229,238,.55)),
-    url("work.png") center / cover no-repeat;
+    radial-gradient(1200px 600px at 20% 0%, rgba(42,167,215,.18), transparent 60%),
+    radial-gradient(900px 500px at 90% 10%, rgba(27,143,184,.14), transparent 55%),
+    var(--pageBg);
 }
 
 @media (max-width:520px){
@@ -210,7 +210,7 @@ header{
 <main>
 
   <div class="container hero">
-    <h1>MTK→ワークあ</h1>
+    <h1>MTK→ワーク</h1>
   </div>
 
   <!-- Life style -->
@@ -677,4 +677,3 @@ main{
 </script>
   
 </body>
-</html>
