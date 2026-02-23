@@ -258,20 +258,28 @@ header{
 /* ================= MAIN ================= */
 main{
   flex:1;
-  padding:20px 0 40px;
+  padding:0px 0 40px;
 }
 .hero{
   text-align:center;
-  margin:12px 0 18px;
+
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+
+  background:linear-gradient(180deg,var(--blue),var(--blue2));
+
+  /* ★ここが重要 */
+  padding:14px 0;
+  margin:0;          /* 余白を消す */
 }
 .hero h1{
   margin:0;
   font-size:24px;
   font-weight:900;
   letter-spacing:.12em;
-  color:#1f5f8b;   /* ← 濃いめブルー */
+  color:#fff;
 }
-
 /* ================= SECTIONS ================= */
 .section{
   border-top:1px solid var(--rule);
@@ -367,7 +375,11 @@ main{
 
 @media (max-width:520px){
   main{ padding:16px 0 32px; }
-  .hero h1{ font-size:20px; }
+ .hero h1{
+  font-size:18px;
+  padding:8px 18px;
+  border-radius:12px;
+}
 
   .section .container{ padding:14px 0; }
   .section-title{ font-size:14px; margin:0 0 12px; }
