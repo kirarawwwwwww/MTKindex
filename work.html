@@ -245,7 +245,7 @@ header{
     <form id="taskForm" class="report-card">
 
       <label class="f-label" for="wpSelect">1. WかPを選択</label>
-      <select id="wpSelect" class="f-control" required>
+      <select id="wpSelect" class="f-control" required style="display:none;">
         <option value="" selected disabled>選択してください</option>
         <option value="W">W</option>
         <option value="P">P</option>
@@ -787,6 +787,9 @@ main{
   
  <script>
 (function(){
+  // Wをデフォルト選択
+wpSelect.value = "W";
+rebuild();
 
 const itemsByWP = {
   W:["仕事タスク","お客様対応タスク","経費"],
