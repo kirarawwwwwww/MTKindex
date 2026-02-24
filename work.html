@@ -525,6 +525,14 @@ main{
 #contentInput{
   height: 180px;   /* 今の約3倍 */
 }
+  /* スマホのみ：入力欄の文字サイズ（iOSズーム防止） */
+@media (max-width:520px){
+  #contentInput,
+  #itemSelect,
+  #wpSelect{
+    font-size:16px;   /* ここを下げるとズームしやすい */
+  }
+}
   
 </style>
 
