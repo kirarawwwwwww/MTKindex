@@ -49,8 +49,8 @@
   --admin2:#7c3aed;
   --life1:#a78bfa;
   --life2:#7c3aed;
-  --private1:#34d399;
-  --private2:#059669;
+  --private1:#22c55e;
+  --private2:#15803d;
 }
 
 *{box-sizing:border-box}
@@ -224,7 +224,7 @@ header{
   </div>
 
  <!-- Life style -->
-<section class="section bandA">
+<section class="section bandA private-section">
   <div class="container">
     <div class="section-title">Life style</div>
 
@@ -257,12 +257,12 @@ header{
   </section>
 
   <!-- Private -->
-  <section class="section bandA">
+  <section class="section bandA private-section">
     <div class="container">
       <div class="section-title">Private</div>
       <div class="pill-grid">
         <a class="pill-btn" href="#"><span class="pill-title">ルール</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">名言</span><span class="pill-icon">→</span></a>
+        <a class="pill-btn" href="#"><span class="pill-title">格言</span><span class="pill-icon">→</span></a>
 
         <!-- 追加 -->
         <a class="pill-btn" href="#"><span class="pill-title">やりたい事</span><span class="pill-icon">→</span></a>
@@ -481,7 +481,7 @@ main{
   border:1px solid rgba(255,255,255,.28);
 }
   /* Private セクションのボタンだけ緑にする */
-.section.bandA:last-of-type .pill-btn{
+.section.private-section .pill-btn{
   background:linear-gradient(180deg,var(--private1),var(--private2));
   border:1px solid rgba(255,255,255,.28);
 }
