@@ -223,21 +223,27 @@ header{
     <h1>MTK インデックス</h1>
   </div>
 
-  <!-- Life style -->
-  <section class="section bandA">
-    <div class="container">
-      <div class="section-title">Life style</div>
-      <div class="pill-grid">
-        <a class="pill-btn" href="#"><span class="pill-title">時刻表</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">購入リスト</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">P共有</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">Wタスク</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">Pタスク</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">支出管理</span><span class="pill-icon">→</span></a>
-        <a class="pill-btn" href="#"><span class="pill-title">リマインダー</span><span class="pill-icon">→</span></a>
-      </div>
+ <!-- Life style -->
+<section class="section bandA">
+  <div class="container">
+    <div class="section-title">Life style</div>
+
+    <!-- ★一番上の段：2つのワイドボタン -->
+    <div class="pill-grid top-two">
+      <a class="pill-btn" href="#"><span class="pill-title">Wタスク</span><span class="pill-icon">→</span></a>
+      <a class="pill-btn" href="#"><span class="pill-title">Pタスク</span><span class="pill-icon">→</span></a>
     </div>
-  </section>
+
+    <!-- ★2段目以降：従来の3列 -->
+    <div class="pill-grid">
+      <a class="pill-btn" href="#"><span class="pill-title">時刻表</span><span class="pill-icon">→</span></a>
+      <a class="pill-btn" href="#"><span class="pill-title">購入リスト</span><span class="pill-icon">→</span></a>
+      <a class="pill-btn" href="#"><span class="pill-title">P共有</span><span class="pill-icon">→</span></a>
+      <a class="pill-btn" href="#"><span class="pill-title">支出管理</span><span class="pill-icon">→</span></a>
+      <a class="pill-btn" href="#"><span class="pill-title">リマインダー</span><span class="pill-icon">→</span></a>
+    </div>
+  </div>
+</section>
 
   <!-- Work -->
   <section class="section bandB">
@@ -554,7 +560,51 @@ main{
     font-size:14px;
   }
 }
-  
+  /* ===== Life style 上段だけ：2つのワイドボタン（端を3列グリッドに揃える） ===== */
+.pill-grid.top-two{
+  display:grid;
+  grid-template-columns:repeat(6, 1fr); /* 6分割して 3+3 で並べる */
+  gap:12px;
+}
+.pill-grid.top-two .pill-btn:nth-child(1){
+  grid-column:1 / span 3; /* 左：1〜3 */
+}
+.pill-grid.top-two .pill-btn:nth-child(2){
+  grid-column:4 / span 3; /* 右：4〜6 */
+}
+
+/* スマホは2列に（見やすさ優先） */
+@media (max-width:520px){
+  .pill-grid.top-two{
+    grid-template-columns:repeat(2, 1fr);
+    gap:10px;
+  }
+  .pill-grid.top-two .pill-btn:nth-child(1),
+  .pill-grid.top-two .pill-btn:nth-child(2){
+    grid-column:auto;
+  }
+}
+
+/* PC時の gap を既存に合わせる（あなたのPC指定に追従させる） */
+@media(min-width:900px){
+  .pill-grid.top-two{ gap:14px; }
+}
+  /* Life style の1段目(W/P)と2段目の間に余白を追加 */
+.pill-grid.top-two{
+  margin-bottom:12px; /* 通常のgapと同じ */
+}
+
+@media(min-width:900px){
+  .pill-grid.top-two{
+    margin-bottom:14px; /* PC時のgapに合わせる */
+  }
+}
+
+@media (max-width:520px){
+  .pill-grid.top-two{
+    margin-bottom:10px; /* スマホ時のgapに合わせる */
+  }
+}
 </style>
 
 
