@@ -846,8 +846,14 @@ function rebuild(){
   });
 }
 
-wpSelect.addEventListener("change",rebuild);
+// W固定（最初から選択された状態にする）
+wpSelect.value = "W";
+
+// itemSelect を組み立てて有効化
 rebuild();
+
+// 変化時の再構築（将来WP表示に戻した時用）
+wpSelect.addEventListener("change", rebuild);
 
 taskForm.addEventListener("submit",function(e){
   e.preventDefault();
