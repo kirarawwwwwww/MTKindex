@@ -794,9 +794,6 @@ main{
   
  <script>
 (function(){
-  // Wをデフォルト選択
-wpSelect.value = "W";
-rebuild();
 
 const itemsByWP = {
   W:["仕事タスク","お客様対応タスク","経費"],
@@ -816,45 +813,44 @@ const g_content = document.getElementById("g_content");
 
 if(!taskForm) return;
 
+/* ========= 項目再構築 ========= */
 function rebuild(){
+
   const wp = wpSelect.value;
   itemSelect.innerHTML = "";
 
   if(!itemsByWP[wp]){
     itemSelect.disabled = true;
     const o = document.createElement("option");
-    o.textContent="先にW/Pを選択してください";
-    o.disabled=true;
-    o.selected=true;
+    o.textContent = "項目を選択してください";
+    o.disabled = true;
+    o.selected = true;
     itemSelect.appendChild(o);
     return;
   }
 
-  itemSelect.disabled=false;
+  // ★必ず有効化
+  itemSelect.disabled = false;
 
-  const h=document.createElement("option");
-  h.textContent="項目を選択してください";
-  h.disabled=true;
-  h.selected=true;
+  const h = document.createElement("option");
+  h.textContent = "項目を選択してください";
+  h.disabled = true;
+  h.selected = true;
   itemSelect.appendChild(h);
 
   itemsByWP[wp].forEach(n=>{
-    const o=document.createElement("option");
-    o.value=n;
-    o.textContent=n;
+    const o = document.createElement("option");
+    o.value = n;
+    o.textContent = n;
     itemSelect.appendChild(o);
   });
 }
 
-// W固定（最初から選択された状態にする）
+/* ========= W固定 ========= */
 wpSelect.value = "W";
-
-// itemSelect を組み立てて有効化
 rebuild();
 
-// 変化時の再構築（将来WP表示に戻した時用）
-wpSelect.addEventListener("change", rebuild);
-
+/* ========= 送信 ========= */
 taskForm.addEventListener("submit",function(e){
   e.preventDefault();
 
