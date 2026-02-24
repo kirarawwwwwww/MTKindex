@@ -253,6 +253,52 @@ header{
     </div>
   </section>
 
+  <!-- ================= Task ================= -->
+<section class="section bandB" id="taskSection">
+  <div class="container">
+    <div class="section-title">Task</div>
+
+    <form id="taskForm" class="report-card">
+
+      <label class="f-label" for="wpSelect">1. WかPを選択</label>
+      <select id="wpSelect" class="f-control" required>
+        <option value="" selected disabled>選択してください</option>
+        <option value="W">W</option>
+        <option value="P">P</option>
+      </select>
+
+      <label class="f-label" for="itemSelect">2. 項目名を選択</label>
+      <select id="itemSelect" class="f-control" required disabled>
+        <option value="" selected disabled>先にW/Pを選択してください</option>
+      </select>
+
+      <label class="f-label" for="contentInput">3. 内容</label>
+      <textarea id="contentInput" class="f-control"
+        rows="4" placeholder="内容を入力" required></textarea>
+
+      <button type="submit" class="submit-btn">送信</button>
+
+      <div id="lastSent" class="last-sent">未送信</div>
+
+    </form>
+
+    <!-- Googleフォーム送信用 -->
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+    <form id="googleFormProxy"
+      action="https://docs.google.com/forms/d/e/1FAIpQLSdKHDYKJQXoHvzhc3QGGacKtJum8MWDjhQPQF_HCu55RFYBnA/formResponse"
+      method="POST"
+      target="hidden_iframe"
+      style="display:none;">
+
+      <input type="hidden" name="entry.879213531" id="g_wp">
+      <input type="hidden" name="entry.893631978" id="g_item">
+      <input type="hidden" name="entry.857709230" id="g_content">
+    </form>
+
+  </div>
+</section>
+
 </main>
 
   
@@ -424,6 +470,57 @@ main{
   grid-column: 1 / -1;
   justify-content: center;   /* 横方向中央 */
   text-align: center;        /* 文字中央 */
+}
+  /* ===== Task フォーム ===== */
+
+.report-card{
+  width:min(720px, 100%);
+  margin:0 auto;
+  background:rgba(255,255,255,.35);
+  border:1px solid rgba(15,23,42,.14);
+  border-radius:18px;
+  padding:16px;
+  box-shadow:var(--shadowSoft);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.f-label{
+  font-weight:900;
+  letter-spacing:.04em;
+  font-size:13px;
+}
+
+.f-control{
+  width:100%;
+  border-radius:12px;
+  border:1px solid rgba(15,23,42,.18);
+  background:rgba(255,255,255,.75);
+  padding:10px 12px;
+  font-family:inherit;
+  font-size:14px;
+}
+
+.submit-btn{
+  margin-top:6px;
+  width:100%;
+  height:44px;
+  border:none;
+  border-radius:14px;
+  cursor:pointer;
+  color:#fff;
+  font-weight:900;
+  letter-spacing:.08em;
+  background:linear-gradient(180deg,var(--blue),var(--blue2));
+}
+
+.last-sent{
+  text-align:center;
+  font-size:12px;
+  font-weight:700;
 }
 </style>
 
@@ -689,6 +786,76 @@ main{
       window.location.reload();
     });
   })();
+</script>
+  
+ <script>
+(function(){
+
+const itemsByWP = {
+  W:["仕事タスク","お客様対応タスク","経費"],
+  P:["Pタスク","P支出管理"]
+};
+
+const taskForm = document.getElementById("taskForm");
+const wpSelect = document.getElementById("wpSelect");
+const itemSelect = document.getElementById("itemSelect");
+const contentInput = document.getElementById("contentInput");
+const lastSent = document.getElementById("lastSent");
+
+const gForm = document.getElementById("googleFormProxy");
+const g_wp = document.getElementById("g_wp");
+const g_item = document.getElementById("g_item");
+const g_content = document.getElementById("g_content");
+
+if(!taskForm) return;
+
+function rebuild(){
+  const wp = wpSelect.value;
+  itemSelect.innerHTML = "";
+
+  if(!itemsByWP[wp]){
+    itemSelect.disabled = true;
+    const o = document.createElement("option");
+    o.textContent="先にW/Pを選択してください";
+    o.disabled=true;
+    o.selected=true;
+    itemSelect.appendChild(o);
+    return;
+  }
+
+  itemSelect.disabled=false;
+
+  const h=document.createElement("option");
+  h.textContent="項目を選択してください";
+  h.disabled=true;
+  h.selected=true;
+  itemSelect.appendChild(h);
+
+  itemsByWP[wp].forEach(n=>{
+    const o=document.createElement("option");
+    o.value=n;
+    o.textContent=n;
+    itemSelect.appendChild(o);
+  });
+}
+
+wpSelect.addEventListener("change",rebuild);
+rebuild();
+
+taskForm.addEventListener("submit",function(e){
+  e.preventDefault();
+
+  g_wp.value = wpSelect.value;
+  g_item.value = itemSelect.value;
+  g_content.value = contentInput.value;
+
+  gForm.submit();
+
+  lastSent.textContent =
+    "最後の送信：" + new Date().toLocaleString("ja-JP");
+});
+
+})();
 </script>
   
 </body>
