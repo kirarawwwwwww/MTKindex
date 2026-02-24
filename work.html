@@ -455,6 +455,19 @@ main{
   justify-content: center;   /* 横方向中央 */
   text-align: center;        /* 文字中央 */
 }
+  /* wタスクだけ文字を大きくする */
+.dxa-grid .w-wide .pill-title{
+  font-size: 20px;   /* PC用 */
+  letter-spacing: .1em;
+}
+
+/* スマホ用 */
+@media (max-width:520px){
+  .dxa-grid .w-wide .pill-title{
+    font-size: 14px;
+  }
+}
+  
   /* ===== Task フォーム ===== */
 
 .report-card{
