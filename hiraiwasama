@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>補助金申請手続きのご案内</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #f2f2f2;
+      color: #111;
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", "MS Mincho", serif;
+      line-height: 1.85;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 18px auto;
+      background: #fff;
+      padding: 24mm 22mm 24mm 22mm;
+      box-shadow: 0 0 0 1px #d9d9d9;
+    }
+
+    .doc-title {
+      text-align: center;
+      margin-bottom: 18mm;
+    }
+
+    .doc-title .sub {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .doc-title h1 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .doc-title .note {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .lead {
+      font-size: 14px;
+      margin: 0 0 12mm 0;
+      text-align: justify;
+    }
+
+    .summary-box {
+      border: 1px solid #000;
+      padding: 10px 14px;
+      margin-bottom: 12mm;
+      font-size: 14px;
+    }
+
+    .summary-box strong {
+      display: inline-block;
+      min-width: 9em;
+    }
+
+    h2 {
+      font-size: 17px;
+      margin: 0 0 6mm 0;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #000;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 15px;
+      margin: 0 0 4mm 0;
+      font-weight: 700;
+    }
+
+    .section {
+      margin-bottom: 12mm;
+    }
+
+    .flow-table,
+    .detail-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 13.5px;
+    }
+
+    .flow-table th,
+    .flow-table td,
+    .detail-table th,
+    .detail-table td {
+      border: 1px solid #000;
+      padding: 8px 10px;
+      vertical-align: top;
+    }
+
+    .flow-table th,
+    .detail-table th {
+      background: #fff;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .flow-table td p,
+    .detail-table td p {
+      margin: 0;
+    }
+
+    .step-block {
+      margin-bottom: 10mm;
+      page-break-inside: avoid;
+    }
+
+    .step-title {
+      border: 1px solid #000;
+      padding: 7px 10px;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 0;
+    }
+
+    .step-subtitle {
+      border-left: 1px solid #000;
+      border-right: 1px solid #000;
+      border-bottom: 1px solid #000;
+      padding: 6px 10px;
+      font-size: 12.5px;
+      margin-bottom: 0;
+    }
+
+    .detail-table th.col-role { width: 18%; }
+    .detail-table th.col-content { width: 32%; }
+    .detail-table th.col-docs { width: 50%; }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    li { margin: 0 0 4px 0; }
+
+    .doc-group {
+      margin-bottom: 8px;
+    }
+
+    .doc-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .doc-group-title {
+      font-weight: 700;
+      text-decoration: underline;
+      margin-bottom: 3px;
+    }
+
+    .notice-box {
+      border: 1px solid #000;
+      padding: 10px 12px;
+      font-size: 13.5px;
+      margin-top: 6mm;
+    }
+
+    .notice-box strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .faq-item {
+      margin-bottom: 6mm;
+    }
+
+    .faq-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-q {
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .footer-note {
+      margin-top: 12mm;
+      font-size: 12px;
+      border-top: 1px solid #000;
+      padding-top: 6mm;
+    }
+
+    @page {
+      size: A4;
+      margin: 18mm;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+      .page {
+        margin: 0;
+        width: auto;
+        min-height: auto;
+        box-shadow: none;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="doc-title">
+      <div class="sub">顧客向けご説明資料</div>
+      <h1>補助金申請手続きのご案内</h1>
+      <div class="note">省エネ設備導入に係る申請から入金までの流れ、および必要書類について</div>
+    </div>
+
+    <p class="lead">
+      本資料は、補助金申請をご検討中のお客様向けに、申請手続きの流れを分かりやすく整理したものです。
+      各工程において、当社が対応する内容と、お客様にご準備・ご確認いただく内容を区分して記載しております。
+      あわせて、工程ごとに必要となる書類も一覧化しておりますので、ご準備の際の参考資料としてご活用ください。
+    </p>
+
+    <div class="summary-box">
+      <div><strong>手続きの流れ：</strong>申請 → 採択 → 契約・工事 → 請求 → 入金</div>
+      <div><strong>お客様の主な対応：</strong>必要書類のご準備、内容確認、押印、お支払い</div>
+      <div><strong>当社の主な対応：</strong>書類作成、写真管理、提出対応、進行管理</div>
+    </div>
+
+    <div class="section">
+      <h2>１．全体の流れ</h2>
+      <table class="flow-table">
+        <tr>
+          <th>STEP</th>
+          <th>項目</th>
+          <th>概要</th>
+        </tr>
+        <tr>
+          <td>STEP ①</td>
+          <td>事前準備</td>
+          <td>現地確認、設備選定、見積書の取得、施工前写真の準備を行います。</td>
+        </tr>
+        <tr>
+          <td>STEP ②</td>
+          <td>交付対象申請</td>
+          <td>必要書類をそろえ、申請書類一式を提出します。</td>
+        </tr>
+        <tr>
+          <td>STEP ③</td>
+          <td>審査・採択</td>
+          <td>申請内容の審査後、採択可否の通知を受けます。</td>
+        </tr>
+        <tr>
+          <td>STEP ④</td>
+          <td>契約・発注</td>
+          <td>採択後に契約・発注を行い、工事へ進みます。</td>
+        </tr>
+        <tr>
+          <td>STEP ⑤</td>
+          <td>工事・設置</td>
+          <td>工事を実施し、施工中・施工後の写真等の証憑を整えます。</td>
+        </tr>
+        <tr>
+          <td>STEP ⑥</td>
+          <td>請求・入金</td>
+          <td>工事完了後に請求書類を提出し、審査完了後に補助金が入金されます。</td>
+        </tr>
+      </table>
+
+      <div class="notice-box">
+        <strong>【重要】</strong>
+        補助金申請においては、採択通知を受ける前に契約・発注を行った場合、補助対象外となる可能性があります。
+        契約・発注は必ず採択後に進めます。
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>２．工程ごとの役割分担と必要書類</h2>
+
+      <div class="step-block">
+        <div class="step-title">STEP ①　事前準備</div>
+        <div class="step-subtitle">申請前の準備期間</div>
+        <table class="detail-table">
+          <tr>
+            <th class="col-role">区分</th>
+            <th class="col-content">対応内容</th>
+            <th class="col-docs">必要書類</th>
+          </tr>
+          <tr>
+            <td>当社</td>
+            <td>
+              <ul>
+                <li>補助金制度の概要説明</li>
+                <li>現地確認</li>
+                <li>設備のご提案</li>
+                <li>見積書の準備</li>
+                <li>施工前写真の撮影</li>
+              </ul>
+            </td>
+            <td>
+              <div class="doc-group">
+                <div class="doc-group-title">当社で準備するもの</div>
+                <ul>
+                  <li>見積書</li>
+                  <li>設備提案資料</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>お客様</td>
+            <td>
+              <ul>
+                <li>申請可否のご判断</li>
+                <li>会社情報のご共有</li>
+                <li>必要書類のご準備開始</li>
+              </ul>
+            </td>
+            <td>
+              <div class="doc-group">
+                <div class="doc-group-title">お客様にご準備いただくもの</div>
+                <ul>
+                  <li>会社情報（会社名、住所、代表者名、ご担当者名）</li>
+                  <li>履歴事項全部証明書</li>
+                  <li>市税に滞納がないことの証明書、または調査同意に必要な情報</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="step-block">
+        <div class="step-title">STEP ②　交付対象申請</div>
+        <div class="step-subtitle">必要書類をそろえて申請</div>
+        <table class="detail-table">
+          <tr>
+            <th class="col-role">区分</th>
+            <th class="col-content">対応内容</th>
+            <th class="col-docs">必要書類</th>
+          </tr>
+          <tr>
+            <td>当社</td>
+            <td>
+              <ul>
+                <li>申請書類の作成</li>
+                <li>添付書類の整理</li>
+                <li>写真台紙の作成</li>
+                <li>申請提出</li>
+              </ul>
+            </td>
+            <td>
+              <div class="doc-group">
+                <div class="doc-group-title">当社で準備するもの</div>
+                <ul>
+                  <li>補助金交付対象申請書（様式1号）</li>
+                  <li>見積書（複数社分）</li>
+                  <li>導入設備カタログ</li>
+                  <li>既存設備カタログ（必要な場合）</li>
+                  <li>設置場所が分かる地図</li>
+                  <li>施工前写真（事業所全体、設置予定箇所、必要に応じて銘板）</li>
+                  <li>写真台紙</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>お客様</td>
+            <td>
+              <ul>
+                <li>必要書類のご提出</li>
+                <li>申請内容のご確認</li>
+                <li>必要に応じた押印・委任手続き</li>
+              </ul>
+            </td>
+            <td>
+              <div class="doc-group">
+                <div class="doc-group-title">お客様にご準備いただくもの</div>
+                <ul>
+                  <li>履歴事項全部証明書</li>
+                  <li>市税に滞納がないことの証明書、または調査同意に必要な情報</li>
+                  <li>役員名簿</li>
+                  <li>同意書（建物所有者が申請者と異なる場合）</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="step-block">
+        <div class="step-title">STEP ③　審査・採択</div>
+        <div class="step-subtitle">結果通知までの期間</div>
+        <table class="detail-table">
+          <tr>
+            <th class="col-role">区分</th>
+            <th class="col-content">対応内容</th>
+            <th class="col-docs">必要書類</th>
+          </tr>
+          <tr>
+            <td>当社</td>
+            <td>
+              <ul>
+                <li>事務局からの照会内容の確認</li>
+                <li>不足書類や修正依頼への対応</li>
+                <li>採択結果のご報告</li>
+              </ul>
+            </td>
+            <td>
+              <div class="doc-group">
+                <div class="doc-group-title">必要に応じて追加対応するもの</div>
+                <ul>
+                  <li>修正後の申請書類</li>
+                  <li>補足説明資料</li>
+                  <li>不足していた添付書類</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>お客様</td>
+            <td>
+              <ul>
+                <li>追加書類が必要な場合のみご提出</li>
+                <li>採択結果のご確認</li>
+                <li>採択前の契約・発注を行わないこと</li>
+              </ul>
+            </td>
+            <td>
+              <div class="doc-group">
+                <div class="doc-group-title">お客様にお願いする事項</div>
+                <ul>
+                  <li>追加提出の依頼があった場合の書類対応</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="step-block">
+        <div class="step-title">STEP ④　契約・発注</div>
+        <div class="step-subtitle">採択後に実施</div>
+        <table class="detail-table">
+          <tr>
+            <th class="col-role">区分</th>
+            <th class="col-content">対応内容</th>
+            <th class="col-docs">必要書類</th>
+          </tr>
+          <tr>
+            <td>当社</td>
+            <td>
+              <ul>
+                <li>契約書類の準備</li>
+                <li>発注・工事日程の調整</li>
+                <li>着工準備</li>
+              </ul>
+            </td>
+            <td>
+              <div class="doc-group">
+                <div class="doc-group-title">当社で準備するもの</div>
+                <ul>
+                  <li>工事請負契約書、または注文書・注文請書</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>お客様</td>
+            <td>
+              <ul>
+                <li>契約内容のご確認</li>
+                <li>契約書への押印</li>
+              </ul>
+            </td>
+            <td>
+              <div class="doc-group">
+                <div class="doc-group-title">お客様にご対応いただくもの</div>
+                <ul>
+                  <li>契約書への押印</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="step-block">
+        <div class="step-title">STEP ⑤　工事・設置</div>
+        <div class="step-subtitle">工事実施期間</div>
+        <table class="detail-table">
+          <tr>
+            <th class="col-role">区分</th>
+            <th class="col-content">対応内容</th>
+            <th class="col-docs">必要書類</th>
+          </tr>
+          <tr>
+            <td>当社</td>
+            <td>
+              <ul>
+                <li>工事の実施</li>
+                <li>施工中・施工後の写真撮影</li>
+                <li>完了後の証憑整理</li>
+              </ul>
+            </td>
+            <td>
+              <div class="doc-group">
+                <div class="doc-group-title">当社で準備するもの</div>
+                <ul>
+                  <li>施工中写真</li>
+                  <li>施工後写真（必要に応じて銘板写真を含む）</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>お客様</td>
+            <td>
+              <ul>
+                <li>必要に応じた工事当日の立ち会い</li>
+                <li>設置内容のご確認</li>
+              </ul>
+            </td>
+            <td>
+              <div class="doc-group">
+                <div class="doc-group-title">お客様にご対応いただくもの</div>
+                <ul>
+                  <li>特段の書類準備はありません</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="step-block">
+        <div class="step-title">STEP ⑥　お支払い・補助金請求</div>
+        <div class="step-subtitle">工事完了後の手続き</div>
+        <table class="detail-table">
+          <tr>
+            <th class="col-role">区分</th>
+            <th class="col-content">対応内容</th>
+            <th class="col-docs">必要書類</th>
+          </tr>
+          <tr>
+            <td>当社</td>
+            <td>
+              <ul>
+                <li>請求書の発行</li>
+                <li>補助金請求書の作成</li>
+                <li>必要証憑の整理および提出</li>
+              </ul>
+            </td>
+            <td>
+              <div class="doc-group">
+                <div class="doc-group-title">当社で準備するもの</div>
+                <ul>
+                  <li>補助金交付請求書（様式8号）</li>
+                  <li>工事請負契約書、または注文書・注文請書</li>
+                  <li>領収書</li>
+                  <li>施工中写真・施工後写真</li>
+                  <li>保証書、または出荷証明書</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>お客様</td>
+            <td>
+              <ul>
+                <li>工事代金のお支払い</li>
+                <li>振込先口座情報のご共有</li>
+                <li>請求内容の最終確認</li>
+              </ul>
+            </td>
+            <td>
+              <div class="doc-group">
+                <div class="doc-group-title">お客様にご準備いただくもの</div>
+                <ul>
+                  <li>振込先口座情報</li>
+                  <li>必要に応じて履歴事項全部証明書（再提出が必要な場合）</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="step-block">
+        <div class="step-title">STEP ⑦　入金・事後報告</div>
+        <div class="step-subtitle">補助金受領後</div>
+        <table class="detail-table">
+          <tr>
+            <th class="col-role">区分</th>
+            <th class="col-content">対応内容</th>
+            <th class="col-docs">必要書類</th>
+          </tr>
+          <tr>
+            <td>当社</td>
+            <td>
+              <ul>
+                <li>審査中の不備対応</li>
+                <li>入金確認</li>
+                <li>事後報告時期のご案内</li>
+              </ul>
+            </td>
+            <td>
+              <div class="doc-group">
+                <div class="doc-group-title">当社でフォローする内容</div>
+                <ul>
+                  <li>報告時期のご案内</li>
+                  <li>必要に応じた提出サポート</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>お客様</td>
+            <td>
+              <ul>
+                <li>補助金入金のご確認</li>
+                <li>設置後の使用状況報告へのご協力</li>
+              </ul>
+            </td>
+            <td>
+              <div class="doc-group">
+                <div class="doc-group-title">お客様にご対応いただくもの</div>
+                <ul>
+                  <li>電力使用量などの事後報告</li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>３．お客様に特にご留意いただきたい事項</h2>
+      <div class="notice-box">
+        <ul>
+          <li>採択通知前の契約・発注は行わないでください。</li>
+          <li>証明書類には有効期限があるため、取得日をご確認ください。</li>
+          <li>工事完了後は、領収書や保証書などの証憑書類が必要になります。</li>
+          <li>補助金受領後も、一定期間は使用状況報告へのご協力が必要です。</li>
+          <li>書類準備を早めに進めていただくことで、申請が円滑に進みます。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>４．よくあるご質問</h2>
+      <div class="faq-item">
+        <div class="faq-q">Q．お客様自身で申請書を作成する必要はありますか。</div>
+        <div>A．申請書類の作成、取りまとめ、提出対応は当社で進めます。お客様には、必要書類のご準備、内容確認、押印等をご協力いただく形となります。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q．最初に何を準備すればよいですか。</div>
+        <div>A．まずは、会社情報、履歴事項全部証明書、市税に関する証明書類のご準備をお願いいたします。建物所有者が申請者と異なる場合は、同意書も必要になります。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q．補助金はいつ受け取れますか。</div>
+        <div>A．工事完了後に請求書類を提出し、審査完了後に入金となります。書類に不備がないことが、入金までを円滑に進める重要なポイントです。</div>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      ※本資料はお客様向けのご説明資料です。実際の申請にあたっては、最新の募集要項・交付要綱・申請様式に基づいてご案内いたします。<br>
+      ご不明点がございましたら、担当者までお問い合わせください。
+    </div>
+  </div>
+</body>
+</html>
